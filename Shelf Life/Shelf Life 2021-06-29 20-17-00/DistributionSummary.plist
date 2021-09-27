@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Shelf Life.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>1</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>073E78DEE022DED1609E73572A09CCFB218FDD93</string>
+				<key>dateExpires</key>
+				<string>29.06.2022</string>
+				<key>type</key>
+				<string>Cloud Managed Apple Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>buildNumber</key>
+					<string>1</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>073E78DEE022DED1609E73572A09CCFB218FDD93</string>
+						<key>dateExpires</key>
+						<string>29.06.2022</string>
+						<key>type</key>
+						<string>Cloud Managed Apple Distribution</string>
+					</dict>
+					<key>entitlements</key>
+					<dict>
+						<key>application-identifier</key>
+						<string>3LQNW9ERQV.Intract.Shelf-Life.Shelf-Life-Widget</string>
+						<key>com.apple.developer.team-identifier</key>
+						<string>3LQNW9ERQV</string>
+						<key>com.apple.security.application-groups</key>
+						<array>
+							<string>group.shelf-life</string>
+						</array>
+						<key>get-task-allow</key>
+						<false/>
+					</dict>
+					<key>name</key>
+					<string>Shelf Life WidgetExtension.appex</string>
+					<key>profile</key>
+					<dict>
+						<key>UUID</key>
+						<string>ba54e1d2-3b58-41c4-a0b4-c1668eca0352</string>
+						<key>dateExpires</key>
+						<string>29.06.2022</string>
+						<key>name</key>
+						<string>iOS Team Ad Hoc Provisioning Profile: Intract.Shelf-Life.Shelf-Life-Widget</string>
+					</dict>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>3LQNW9ERQV</string>
+						<key>name</key>
+						<string>Gokhan Egri</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>1.0</string>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>3LQNW9ERQV.Intract.Shelf-Life</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>3LQNW9ERQV</string>
+				<key>com.apple.security.application-groups</key>
+				<array>
+					<string>group.shelf-life</string>
+				</array>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>Shelf Life.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>6f2305d5-a232-48ee-a71f-23b180a8b3cb</string>
+				<key>dateExpires</key>
+				<string>29.06.2022</string>
+				<key>name</key>
+				<string>iOS Team Ad Hoc Provisioning Profile: Intract.Shelf-Life</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>3LQNW9ERQV</string>
+				<key>name</key>
+				<string>Gokhan Egri</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>

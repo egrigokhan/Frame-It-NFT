@@ -1,0 +1,81 @@
+//
+//  UserDefaultsFunctions.swift
+//  Shelf Life
+//
+//  Created by Gokhan Egri on 20.06.2021.
+//
+
+import Foundation
+import UIKit
+import SwiftUI
+import WidgetKit
+
+struct UserDefaultsFunctions {
+    
+    static func dummy() {}
+    
+    static func saveVariant(key: String, value: [String:String]) {
+        let userDefaults = UserDefaults(suiteName: "group.shelf-life")
+        
+        userDefaults!.set(value, forKey: key)
+    }
+    
+    static func readVariant(key: String) -> [String:String] {
+        let userDefaults = UserDefaults(suiteName: "group.shelf-life")
+        
+        if let value = userDefaults!.value(forKey: key) {
+            return value as! [String:String]
+        } else {
+            return ["VARIANT_LARGE": "",
+                    "VARIANT_MEDIUM": "",
+                    "VARIANT_SMALL": ""]
+        }
+        
+    }
+    
+    static func saveObject(key: String, value: [TransferState]) {
+        let userDefaults = UserDefaults(suiteName: "group.shelf-life")
+        
+        let encoder = JSONEncoder()
+
+        if let data = try? encoder.encode(value) {
+            userDefaults!.set(data, forKey: key)
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+    }
+    
+    static func readObject(key: String) -> [ChildView] {
+        let userDefaults = UserDefaults(suiteName: "group.shelf-life")
+        
+        let decoder = JSONDecoder()
+        
+        if let value = userDefaults!.value(forKey: key) {
+            if let data = try? decoder.decode([TransferState].self, from: value as! Data) {
+                var civ: [ChildView] = []
+                var backgroundColor: ChildView = ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())
+                
+                for ts in data {
+                    if(ts.isColor) {
+                        backgroundColor = ChildView.init(type: .COLOR, colorComponents: ts.colorRGB, offset: .zero, scale: 1.0, imageView: UIImage.init())
+                    } else {
+                        var view: ChildView
+                            // var data_ = UserDefaults(suiteName: "group.shelf-life")?.value(forKey: ts.imageId) as! Data
+                            var imageView = UIImage(data: ts.imageData)
+                        view = ChildView.init(type: .IMAGE, colorComponents: [], offset: ts.offset, scale: ts.scale, imageView: imageView!)
+                        
+                        
+                        view.state.offset = ts.offset
+                        view.state.scale = ts.scale
+
+                        civ.append(view)
+                    }
+                }
+                civ.insert(backgroundColor, at: 0)
+                return civ
+            }
+            return [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]
+        } else {
+            return [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]
+        }
+    }
+}
