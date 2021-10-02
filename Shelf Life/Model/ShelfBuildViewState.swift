@@ -15,12 +15,32 @@ class ShelfBuildViewState: ObservableObject {
     @Published var shelfVariant: String
     @Published var shelfViews: [ChildView]
     @Published var backgroundColor: ChildView
+    @Published var thumbnailImage: UIImage
     
     init(widgetType: String, shelfVariant: String) {
         self.widgetType = widgetType
         self.shelfVariant = shelfVariant
-        let temp = UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(shelfVariant)")
-        self.shelfViews = Array(temp[1...])
-        self.backgroundColor = temp[0]
+        var temp_ = UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(shelfVariant)") as? Any
+        print(temp_)
+        if(temp_ != nil) {
+            var temp = temp_ as! [String:[ChildView]]
+            
+            print("temp")
+            print(temp)
+            self.thumbnailImage = temp["thumbnail"]![0].state.imageView // temp[temp.count - 2].state.imageView
+            /*
+            if(temp.count >= 2) {
+                print(temp[temp.count - 2].state.imageView)
+                self.thumbnailImage = temp[temp.count - 2].state.imageView
+            }
+            */
+            self.shelfViews = Array(temp["cv"]![1..<(temp["cv"]!.count)])
+            self.backgroundColor = temp["cv"]![0]
+        } else {
+            self.thumbnailImage = UIImage.init(imageLiteralResourceName: "bob")
+            self.shelfViews = []
+            self.backgroundColor = ChildView.init(type: .COLOR, colorComponents: [255, 0, 255], offset: .zero, scale: 1, imageView: UIImage.init())
+        }
+        
     }
 }

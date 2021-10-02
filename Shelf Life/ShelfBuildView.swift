@@ -15,6 +15,9 @@ struct ShelfCanvasView: View {
     // @Binding var views: [ChildView]
     // @Binding var backgroundColor: ChildView
     
+    @Binding var shouldTakeScreenshot: Bool
+    @Binding var screenshot: UIImage
+    
     @ObservedObject var state: ShelfBuildViewState
         
     @Binding var notification: String
@@ -58,6 +61,11 @@ struct ShelfCanvasView: View {
             
                 UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
 
+        }.onChange(of: shouldTakeScreenshot) { value in
+            if(value == true) {
+                self.screenshot = self.body.snapshot()
+                self.shouldTakeScreenshot = false
+            }
         } // .offset(x: 0, y: -24)
         }
     
@@ -91,6 +99,9 @@ struct ShelfBuildView: View {
     
     @State var shelfActivated: Bool = true
     
+    @State var shouldTakeScreenshot: Bool = false
+    @State var screenshot: UIImage = UIImage()
+    
     @State var id = UUID()
     
     var body: some View {
@@ -101,7 +112,36 @@ struct ShelfBuildView: View {
                 .multilineTextAlignment(.center)
                 .font(Font.system(size: 12))
             
-            ShelfCanvasView(widgetType: self.$widgetType, widgetVariant: self.$widgetVariant, state: self.state, notification: self.$notification)
+            ShelfCanvasView(widgetType: self.$widgetType, widgetVariant: self.$widgetVariant, shouldTakeScreenshot: self.$shouldTakeScreenshot, screenshot: self.$screenshot, state: self.state, notification: self.$notification)
+                .onChange(of: screenshot) { value in
+                if(value != nil) {
+                    var shelfStates: [TransferState] = []
+                    
+                    self.state.shelfViews = self.state.shelfViews
+                    self.state.backgroundColor = self.state.backgroundColor
+                    
+                    if(self.state.backgroundColor != nil) {
+                        shelfStates.append(TransferState.init(id: "background-color", isColor: true, colorRGB: (self.state.backgroundColor.state.colorComponents), offset: CGPoint.zero, scale: -1, imageData: Data.init()))
+                    }
+                    
+                    for v in self.state.shelfViews {
+                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.pngData()!))
+                    }
+                    
+                    self.shouldTakeScreenshot = true
+                    
+                    // shelfStates.append(TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: -1, imageData: value.pngData()!))
+                    
+                    UserDefaultsFunctions.saveObject(key: "widget_" + self.widgetType + self.widgetVariant, value: ["thumbnail": [TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: 1, imageData: value.pngData()!)], "ts": shelfStates])
+                    
+                    self.notification = "🎉 Your shelf should now be updated!"
+                    self.id = UUID()
+                    
+                    DispatchQueue.main.async {
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
+                }
+            }
             
             VStack {
                 HStack {
@@ -116,26 +156,7 @@ struct ShelfBuildView: View {
                     }
                     
                     Button.init {
-                        var shelfStates: [TransferState] = []
-                        
-                        self.state.shelfViews = self.state.shelfViews
-                        self.state.backgroundColor = self.state.backgroundColor
-                        
-                        if(self.state.backgroundColor != nil) {
-                            shelfStates.append(TransferState.init(id: "background-color", isColor: true, colorRGB: (self.state.backgroundColor.state.colorComponents), offset: CGPoint.zero, scale: -1, imageData: Data.init()))
-                        }
-                        
-                        for v in self.state.shelfViews {
-                            shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.pngData()!))
-                        }
-                        UserDefaultsFunctions.saveObject(key: "widget_" + self.widgetType + self.widgetVariant, value: shelfStates)
-                        
-                        self.notification = "🎉 Your shelf should now be updated!"
-                        self.id = UUID()
-                        
-                        DispatchQueue.main.async {
-                            WidgetCenter.shared.reloadAllTimelines()
-                        }
+                        self.shouldTakeScreenshot = true
                     } label: {
                         ZStack {
                             Text(Image(systemName: "square.and.arrow.down")).foregroundColor(Color.init(UIColor.init(named: "text")!)) + Text(" Save").foregroundColor(Color.init(UIColor.init(named: "text")!)).bold()
@@ -177,12 +198,12 @@ struct ShelfBuildView: View {
         }.padding(16)
         .onChange(of: self.widgetType) { _ in
             print("TESTING")
-            self.state.shelfViews = Array(UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(widgetVariant)")[1...])
-            self.state.backgroundColor = (UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(widgetVariant)")[0])
+            self.state.shelfViews = Array((UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(widgetVariant)") as! [String:[ChildView]])["cv"]![1...])
+            self.state.backgroundColor = ((UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(widgetVariant)") as! [String:[ChildView]])["cv"]![0])
         }
         .onChange(of: self.widgetVariant) { _ in
-            self.state.shelfViews = Array(UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(widgetVariant)")[1...])
-            self.state.backgroundColor = (UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(widgetVariant)")[0])
+            self.state.shelfViews = Array((UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(widgetVariant)") as! [String:[ChildView]])["cv"]![1...])
+            self.state.backgroundColor = ((UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(widgetVariant)") as! [String:[ChildView]])["cv"]![0])
         }
     }
 }

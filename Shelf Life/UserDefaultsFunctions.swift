@@ -33,7 +33,7 @@ struct UserDefaultsFunctions {
         
     }
     
-    static func saveObject(key: String, value: [TransferState]) {
+    static func saveObject(key: String, value: [String:[TransferState]]) {
         let userDefaults = UserDefaults(suiteName: "group.shelf-life")
         
         let encoder = JSONEncoder()
@@ -44,17 +44,19 @@ struct UserDefaultsFunctions {
         }
     }
     
-    static func readObject(key: String) -> [ChildView] {
+    static func readObject(key: String) -> [String:[ChildView]] {
         let userDefaults = UserDefaults(suiteName: "group.shelf-life")
         
         let decoder = JSONDecoder()
         
         if let value = userDefaults!.value(forKey: key) {
-            if let data = try? decoder.decode([TransferState].self, from: value as! Data) {
+            if let data_ = try? decoder.decode([String:[TransferState]].self, from: (value as! Data)) {
+                let data = data_["ts"]
                 var civ: [ChildView] = []
                 var backgroundColor: ChildView = ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())
-                
-                for ts in data {
+                var thumbnailImage: ChildView = ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())
+
+                for ts in data! {
                     if(ts.isColor) {
                         backgroundColor = ChildView.init(type: .COLOR, colorComponents: ts.colorRGB, offset: .zero, scale: 1.0, imageView: UIImage.init())
                     } else {
@@ -71,11 +73,16 @@ struct UserDefaultsFunctions {
                     }
                 }
                 civ.insert(backgroundColor, at: 0)
-                return civ
+
+                if(data_["thumbnail"]![0] as? Data != nil) {
+                    return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(data: data_["thumbnail"]![0].imageData)!)], "cv": civ]
+                } else {
+                    return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(data: data_["thumbnail"]![0].imageData)!)], "cv": civ]
+                }
             }
-            return [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]
+            return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(imageLiteralResourceName: "bob"))], "cv": [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]]
         } else {
-            return [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]
+            return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(imageLiteralResourceName: "bob"))], "cv": [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]]
         }
     }
 }

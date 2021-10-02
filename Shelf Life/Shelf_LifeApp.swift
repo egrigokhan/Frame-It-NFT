@@ -12,7 +12,7 @@ import StoreKit
 struct Shelf_LifeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }

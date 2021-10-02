@@ -11,6 +11,8 @@ import SwiftUI
 
 struct TransferState: Codable {
     var id: String
+    
+    var isThumbnail: Bool = false
 
     var isColor: Bool = false
     var colorRGB: [CGFloat] = []
