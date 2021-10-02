@@ -4,7 +4,7 @@
 //
 //  Created by Gokhan Egri on 19.06.2021.
 //
-
+/*
 import SwiftUI
 import WidgetKit
 import StoreKit
@@ -128,7 +128,7 @@ struct ShelfHorizontalScroll: View {
                     
                     var shelfStates: [TransferState] = []
                     
-                    let SMALL_DICT = UserDefaultsFunctions.readObject(key: "widget_small" + shelfVariant)
+                    let SMALL_DICT = (UserDefaultsFunctions.readObject(key: "widget_small" + shelfVariant) as! [String:[ChildView]])["cv"]
                     
                     if(SMALL_DICT.count > 0) {
                         shelfStates.append(TransferState.init(id: "background-color", isColor: true, colorRGB: (SMALL_DICT[0].state.colorComponents), offset: CGPoint.zero, scale: -1, imageData: Data.init()))
@@ -180,7 +180,7 @@ struct ShelfHorizontalScroll: View {
                     
                     var shelfStates: [TransferState] = []
                     
-                    let MEDIUM_DICT = UserDefaultsFunctions.readObject(key: "widget_medium" + shelfVariant)
+                    let MEDIUM_DICT = (UserDefaultsFunctions.readObject(key: "widget_medium" + shelfVariant) as! [String:[ChildView]])["cv"]
                     
                     if(MEDIUM_DICT.count > 0) {
                         shelfStates.append(TransferState.init(id: "background-color", isColor: true, colorRGB: (MEDIUM_DICT[0].state.colorComponents), offset: CGPoint.zero, scale: -1, imageData: Data.init()))
@@ -232,13 +232,13 @@ struct ShelfHorizontalScroll: View {
                     
                     var shelfStates: [TransferState] = []
                     
-                    let LARGE_DICT = UserDefaultsFunctions.readObject(key: "widget_large" + shelfVariant)
+                    let LARGE_DICT = (UserDefaultsFunctions.readObject(key: "widget_large" + shelfVariant) as! [String:[ChildView]])["cv"]
                     
-                    if(LARGE_DICT.count > 0) {
-                        shelfStates.append(TransferState.init(id: "background-color", isColor: true, colorRGB: (LARGE_DICT[0].state.colorComponents), offset: CGPoint.zero, scale: -1, imageData: Data.init()))
+                    if(LARGE_DICT!.count > 0) {
+                        shelfStates.append(TransferState.init(id: "background-color", isColor: true, colorRGB: (LARGE_DICT![0].state.colorComponents), offset: CGPoint.zero, scale: -1, imageData: Data.init()))
                     }
                     
-                    for v in (LARGE_DICT[1...]) {
+                    for v in (LARGE_DICT![1...]) {
                         shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.pngData()!))
                     }
                     UserDefaultsFunctions.saveObject(key: "widget_large" + shelfVariant, value: shelfStates)
@@ -383,3 +383,4 @@ struct ContentView_Previews: PreviewProvider {
             .previewDevice("iPhone 12 Pro Max")
     }
 }
+*/

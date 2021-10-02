@@ -17,9 +17,18 @@ class ShelfBuildViewState: ObservableObject {
     @Published var backgroundColor: ChildView
     @Published var thumbnailImage: UIImage
     
-    init(widgetType: String, shelfVariant: String) {
+    init(widgetType: String, shelfVariant: String, shelfViews: [ChildView], thumbnailImage: UIImage) {
         self.widgetType = widgetType
         self.shelfVariant = shelfVariant
+        self.thumbnailImage = thumbnailImage
+        if(shelfViews.count >= 1) {
+            self.shelfViews = Array(shelfViews[1..<(shelfViews.count)])
+            self.backgroundColor = shelfViews[0]
+        } else {
+            self.shelfViews = []
+            self.backgroundColor = ChildView.init(type: .COLOR, colorComponents: [1, 1, 0], offset: .zero, scale: 1.0, imageView: UIImage.init())
+        }
+        /*
         var temp_ = UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(shelfVariant)") as? Any
         print(temp_)
         if(temp_ != nil) {
@@ -41,6 +50,7 @@ class ShelfBuildViewState: ObservableObject {
             self.shelfViews = []
             self.backgroundColor = ChildView.init(type: .COLOR, colorComponents: [255, 0, 255], offset: .zero, scale: 1, imageView: UIImage.init())
         }
+        */
         
     }
 }
