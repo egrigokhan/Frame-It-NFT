@@ -309,14 +309,14 @@ struct Shelf_Life_WidgetEntryView : View {
             
             switch family {
             case .systemSmall:
-                let SMALL_DICT = UserDefaultsFunctions.readObject(key: "widget_small\(UserDefaultsFunctions.readVariant(key: "shelf_variants")["VARIANT_SMALL"]!)") as! [String:[ChildView]]
-                ShelfCanvasView_WIDGET.init(widgetType: self.$SMALL, widgetVariant: UserDefaultsFunctions.readVariant(key: "shelf_variants")["VARIANT_SMALL"]!, views: Array(SMALL_DICT["cv"]![1...]), backgroundColor: SMALL_DICT["cv"]![0])
+                let SMALL_DICT = UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_smallbegroovyorleaveman") as! [[String:[ChildView]]]
+                ShelfCanvasView_WIDGET.init(widgetType: self.$SMALL, widgetVariant: UserDefaultsFunctions.readVariant(key: "shelf_variants")["VARIANT_SMALL"]!, views: Array(SMALL_DICT[0]["cv"]![1...]), backgroundColor: SMALL_DICT[0]["cv"]![0])
             case .systemMedium:
-                let MEDIUM_DICT = UserDefaultsFunctions.readObject(key: "widget_medium\(UserDefaultsFunctions.readVariant(key: "shelf_variants")["VARIANT_MEDIUM"]!)") as! [String:[ChildView]]
-                ShelfCanvasView_WIDGET.init(widgetType: self.$MEDIUM, widgetVariant: UserDefaultsFunctions.readVariant(key: "shelf_variants")["VARIANT_MEDIUM"]!, views: Array(MEDIUM_DICT["cv"]![1...]), backgroundColor: MEDIUM_DICT["cv"]![0])
+                let MEDIUM_DICT = UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_mediumbegroovyorleaveman") as! [[String:[ChildView]]]
+                ShelfCanvasView_WIDGET.init(widgetType: self.$MEDIUM, widgetVariant: UserDefaultsFunctions.readVariant(key: "shelf_variants")["VARIANT_MEDIUM"]!, views: Array(MEDIUM_DICT[0]["cv"]![1...]), backgroundColor: MEDIUM_DICT[0]["cv"]![0])
             case .systemLarge:
-                let LARGE_DICT = UserDefaultsFunctions.readObject(key: "widget_large\(UserDefaultsFunctions.readVariant(key: "shelf_variants")["VARIANT_LARGE"]!)") as! [String:[ChildView]]
-                ShelfCanvasView_WIDGET.init(widgetType: self.$LARGE, widgetVariant: UserDefaultsFunctions.readVariant(key: "shelf_variants")["VARIANT_LARGE"]!, views: Array(LARGE_DICT["cv"]![1...]), backgroundColor: LARGE_DICT["cv"]![0])
+                let LARGE_DICT = UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_largebegroovyorleaveman") as! [[String:[ChildView]]]
+                ShelfCanvasView_WIDGET.init(widgetType: self.$LARGE, widgetVariant: UserDefaultsFunctions.readVariant(key: "shelf_variants")["VARIANT_LARGE"]!, views: Array(LARGE_DICT[0]["cv"]![1...]), backgroundColor: LARGE_DICT[0]["cv"]![0])
             default:
                 Text("Some other WidgetFamily in the future.")
             }

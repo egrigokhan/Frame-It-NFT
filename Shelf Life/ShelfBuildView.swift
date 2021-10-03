@@ -132,7 +132,8 @@ struct ShelfBuildView: View {
                     
                     // shelfStates.append(TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: -1, imageData: value.pngData()!))
                     
-                    UserDefaultsFunctions.addTimelineObject(key: "widget_timeline_" + self.widgetType + self.widgetVariant, value: ["thumbnail": [TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: 1, imageData: value.pngData()!)], "ts": shelfStates])
+                    print(state.timelineIndex)
+                    UserDefaultsFunctions.addTimelineObject(key: "widget_timeline_" + self.widgetType + self.widgetVariant, value: ["thumbnail": [TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: 1, imageData: value.pngData()!)], "ts": shelfStates], index: state.timelineIndex)
                     
                     self.notification = "🎉 Your shelf should now be updated!"
                     self.id = UUID()

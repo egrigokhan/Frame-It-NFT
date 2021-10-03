@@ -44,14 +44,19 @@ struct UserDefaultsFunctions {
         }
     }
     
-    static func addTimelineObject(key: String, value: [String:[TransferState]]) {
+    static func addTimelineObject(key: String, value: [String:[TransferState]], index: Int) {
         let userDefaults = UserDefaults(suiteName: "group.shelf-life")
         
         let decoder = JSONDecoder()
         
         if let v = userDefaults!.value(forKey: key) {
             if var d = try? decoder.decode([[String:[TransferState]]].self, from: (v as! Data)) {
-                d.append(value)
+                
+                if(index == -1) {
+                    d.append(value)
+                } else {
+                    d[index] = value
+                }
                 
                 let encoder = JSONEncoder()
 
@@ -118,9 +123,9 @@ struct UserDefaultsFunctions {
                 }
                 return returnObjects
             }
-            return [["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(imageLiteralResourceName: "bob"))], "cv": [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]]]
+            return []
         } else {
-            return [["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(imageLiteralResourceName: "bob"))], "cv": [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]]]
+            return []
         }
     }
     

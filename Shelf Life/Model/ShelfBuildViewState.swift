@@ -16,11 +16,13 @@ class ShelfBuildViewState: ObservableObject {
     @Published var shelfViews: [ChildView]
     @Published var backgroundColor: ChildView
     @Published var thumbnailImage: UIImage
+    @Published var timelineIndex: Int = -1
     
-    init(widgetType: String, shelfVariant: String, shelfViews: [ChildView], thumbnailImage: UIImage) {
+    init(widgetType: String, shelfVariant: String, shelfViews: [ChildView], thumbnailImage: UIImage, timelineIndex: Int) {
         self.widgetType = widgetType
         self.shelfVariant = shelfVariant
         self.thumbnailImage = thumbnailImage
+        self.timelineIndex = timelineIndex
         if(shelfViews.count >= 1) {
             self.shelfViews = Array(shelfViews[1..<(shelfViews.count)])
             self.backgroundColor = shelfViews[0]
