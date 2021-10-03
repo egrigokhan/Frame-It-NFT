@@ -1,0 +1,6 @@
+framework module Pods_Shelf_Life_WidgetExtension {
+  umbrella header "Pods-Shelf Life WidgetExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}

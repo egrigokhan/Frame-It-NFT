@@ -1,0 +1,6 @@
+framework module Pods_Shelf_Life {
+  umbrella header "Pods-Shelf Life-umbrella.h"
+
+  export *
+  module * { export * }
+}
