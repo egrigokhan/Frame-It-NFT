@@ -30,8 +30,8 @@ struct ChildImageView: Identifiable, View {
                 .scaledToFit()
                 .frame(height: 80, alignment: .center)
                 .padding(16 / self.state.scale)
-                .background(Color.white)
-                .border(Color.black, width: 6 / self.state.scale)
+                // .background(Color.white)
+                // .border(Color.black, width: 6 / self.state.scale)
                 .scaleEffect(self.state.scale)
                 .offset(x: self.state.offset.x, y: self.state.offset.y)
                 .gesture(

@@ -31,9 +31,9 @@ struct ShelfCanvasView: View {
                 .frame(width: Util.getWidgetSize(size: widgetType).width, height: Util.getWidgetSize(size: widgetType).height, alignment: .center)
             ForEach(self.state.shelfViews) { view in
                 view
-                    .shadow(radius: 1, x: 0, y: 5)
-                    .shadow(radius: 1, x: 1, y: 0)
-                    .shadow(radius: 1, x: -1, y: 0)
+                    // .shadow(radius: 1, x: 0, y: 5)
+                    // .shadow(radius: 1, x: 1, y: 0)
+                    // .shadow(radius: 1, x: -1, y: 0)
                     .gesture(TapGesture(count: 2)
                                 .onEnded({ value in
                                     self.state.shelfViews = self.state.shelfViews.filter { $0.id != view.id }
@@ -102,6 +102,8 @@ struct ShelfBuildView: View {
     @State var shouldTakeScreenshot: Bool = false
     @State var screenshot: UIImage = UIImage()
     
+    @State var isSpectatorsOn: Bool = false
+    
     @State var id = UUID()
     
     var body: some View {
@@ -126,6 +128,10 @@ struct ShelfBuildView: View {
                     
                     for v in self.state.shelfViews {
                         shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.pngData()!))
+                    }
+                    
+                    if(self.isSpectatorsOn) {
+                        shelfStates.append(TransferState.init(id: "spec-1", offset: CGPoint.init(x: 0, y: 0), scale: 0.5, imageData: UIImage(named: "spec-1")!.pngData()!))
                     }
                     
                     self.shouldTakeScreenshot = true
@@ -205,6 +211,8 @@ struct ShelfBuildView: View {
         .onChange(of: self.widgetVariant) { _ in
             self.state.shelfViews = Array((UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(widgetVariant)") as! [String:[ChildView]])["cv"]![1...])
             self.state.backgroundColor = ((UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(widgetVariant)") as! [String:[ChildView]])["cv"]![0])
+        }.toolbar {
+            Toggle.init("Spectators", isOn: self.$isSpectatorsOn)
         }
     }
 }

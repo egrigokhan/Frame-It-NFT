@@ -45,9 +45,16 @@ struct ShelfTimelineHorizontalScroll_SMALL: View {
     func buildNavigationLink(destination: ShelfBuildView) -> some View {
         NavigationLink(destination: destination) {
             ZStack {
-                Text(Image(systemName: "pencil")).foregroundColor(Color.init(UIColor.init(named: "text")!)) + Text(" Edit").foregroundColor(Color.init(UIColor.init(named: "text")!)).bold()
-            }.padding(8)
-                .background(Color.init(UIColor.init(named: "background")!))
+                Color.init("light-background")
+                HStack {
+                    Image.init(systemName: "plus")
+                        .frame(width: 40, height: 40, alignment: Alignment.center)
+                        .foregroundColor(.black)
+                        .scaleEffect(2)
+                }
+            }
+            .frame(width: 40, height: 40, alignment: Alignment.center)
+                        .foregroundColor(.black)
                 .cornerRadius(12)
         }
     }
@@ -58,22 +65,10 @@ struct ShelfTimelineHorizontalScroll_SMALL: View {
                 HStack(spacing: 10) {
                     ZStack {
                         HStack {
-                            Image.init(systemName: "plus")
+                            buildNavigationLink(destination: ShelfBuildView.init(state: ShelfBuildViewState.init(widgetType: "small", shelfVariant:  "begroovyorleaveman", shelfViews: [], thumbnailImage: UIImage.init(), timelineIndex: -1), widgetType: self.$widgetType, widgetVariant: self.$widgetVariant))
                         }
-                        .padding(16)
-                        VStack {
-                                HStack {
-                                    Spacer()
-                                    VStack {
-                                        HStack {
-                                            buildNavigationLink(destination: ShelfBuildView.init(state: ShelfBuildViewState.init(widgetType: "small", shelfVariant:  "begroovyorleaveman", shelfViews: [], thumbnailImage: UIImage.init(), timelineIndex: -1), widgetType: self.$widgetType, widgetVariant: self.$widgetVariant))
-                                        }
-                                    }
-
-                                }.offset(x: -16, y: 16)
-                            Spacer()
-                        }
-                    }.frame(width: 16, height: Util.getWidgetSize(size: "small").height)
+                        Spacer()
+                    }.frame(width: 72, height: Util.getWidgetSize(size: "small").height)
                     .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                     ForEach(0..<self.TIMELINE_SMALL.count) { index in
                         ShelfTimelineHorizontalScrollItem_SMALL(state: ShelfBuildViewState.init(widgetType: "small", shelfVariant:  "begroovyorleaveman", shelfViews: self.TIMELINE_SMALL[index]["cv"]!, thumbnailImage: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index), thumbnail: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index)
@@ -120,9 +115,16 @@ struct ShelfTimelineHorizontalScroll_MEDIUM: View {
     func buildNavigationLink(destination: ShelfBuildView) -> some View {
         NavigationLink(destination: destination) {
             ZStack {
-                Text(Image(systemName: "pencil")).foregroundColor(Color.init(UIColor.init(named: "text")!)) + Text(" Edit").foregroundColor(Color.init(UIColor.init(named: "text")!)).bold()
-            }.padding(8)
-                .background(Color.init(UIColor.init(named: "background")!))
+                Color.init("light-background")
+                HStack {
+                    Image.init(systemName: "plus")
+                        .frame(width: 40, height: 40, alignment: Alignment.center)
+                        .foregroundColor(.black)
+                        .scaleEffect(2)
+                }
+            }
+            .frame(width: 40, height: 40, alignment: Alignment.center)
+                        .foregroundColor(.black)
                 .cornerRadius(12)
         }
     }
@@ -133,22 +135,10 @@ struct ShelfTimelineHorizontalScroll_MEDIUM: View {
                 HStack(spacing: 10) {
                     ZStack {
                         HStack {
-                            Image.init(systemName: "plus")
+                            buildNavigationLink(destination: ShelfBuildView.init(state: ShelfBuildViewState.init(widgetType: "medium", shelfVariant:  "begroovyorleaveman", shelfViews: [], thumbnailImage: UIImage.init(), timelineIndex: -1), widgetType: self.$widgetType, widgetVariant: self.$widgetVariant))
                         }
-                        .padding(16)
-                        VStack {
-                                HStack {
-                                    Spacer()
-                                    VStack {
-                                        HStack {
-                                            buildNavigationLink(destination: ShelfBuildView.init(state: ShelfBuildViewState.init(widgetType: "medium", shelfVariant:  "begroovyorleaveman", shelfViews: [], thumbnailImage: UIImage.init(), timelineIndex: -1), widgetType: self.$widgetType, widgetVariant: self.$widgetVariant))
-                                        }
-                                    }
-
-                                }.offset(x: -16, y: 16)
-                            Spacer()
-                        }
-                    }.frame(width: 16, height: Util.getWidgetSize(size: "medium").height)
+                        Spacer()
+                    }.frame(width: 72, height: Util.getWidgetSize(size: "medium").height)
                     .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                     ForEach(0..<self.TIMELINE_SMALL.count) { index in
                         ShelfTimelineHorizontalScrollItem_MEDIUM(state: ShelfBuildViewState.init(widgetType: "medium", shelfVariant:  "begroovyorleaveman", shelfViews: self.TIMELINE_SMALL[index]["cv"]!, thumbnailImage: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index), thumbnail: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index)
@@ -195,9 +185,16 @@ struct ShelfTimelineHorizontalScroll_LARGE: View {
     func buildNavigationLink(destination: ShelfBuildView) -> some View {
         NavigationLink(destination: destination) {
             ZStack {
-                Text(Image(systemName: "pencil")).foregroundColor(Color.init(UIColor.init(named: "text")!)) + Text(" Edit").foregroundColor(Color.init(UIColor.init(named: "text")!)).bold()
-            }.padding(8)
-                .background(Color.init(UIColor.init(named: "background")!))
+                Color.init("light-background")
+                HStack {
+                    Image.init(systemName: "plus")
+                        .frame(width: 40, height: 40, alignment: Alignment.center)
+                        .foregroundColor(.black)
+                        .scaleEffect(2)
+                }
+            }
+            .frame(width: 40, height: 40, alignment: Alignment.center)
+                        .foregroundColor(.black)
                 .cornerRadius(12)
         }
     }
@@ -208,22 +205,10 @@ struct ShelfTimelineHorizontalScroll_LARGE: View {
                 HStack(spacing: 10) {
                     ZStack {
                         HStack {
-                            Image.init(systemName: "plus")
+                            buildNavigationLink(destination: ShelfBuildView.init(state: ShelfBuildViewState.init(widgetType: "large", shelfVariant:  "begroovyorleaveman", shelfViews: [], thumbnailImage: UIImage.init(), timelineIndex: -1), widgetType: self.$widgetType, widgetVariant: self.$widgetVariant))
                         }
-                        .padding(16)
-                        VStack {
-                                HStack {
-                                    Spacer()
-                                    VStack {
-                                        HStack {
-                                            buildNavigationLink(destination: ShelfBuildView.init(state: ShelfBuildViewState.init(widgetType: "large", shelfVariant:  "begroovyorleaveman", shelfViews: [], thumbnailImage: UIImage.init(), timelineIndex: -1), widgetType: self.$widgetType, widgetVariant: self.$widgetVariant))
-                                        }
-                                    }
-
-                                }.offset(x: -16, y: 16)
-                            Spacer()
-                        }
-                    }.frame(width: 16, height: Util.getWidgetSize(size: "large").height)
+                        Spacer()
+                    }.frame(width: 72, height: Util.getWidgetSize(size: "large").height)
                     .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                     ForEach(0..<self.TIMELINE_SMALL.count) { index in
                         ShelfTimelineHorizontalScrollItem_LARGE(state: ShelfBuildViewState.init(widgetType: "large", shelfVariant:  "begroovyorleaveman", shelfViews: self.TIMELINE_SMALL[index]["cv"]!, thumbnailImage: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index), thumbnail: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index)
@@ -262,8 +247,8 @@ struct HomeView: View {
                         Spacer(minLength: 12)
                         // InventoryGridView(showingPurchaseAlert: self.$showingPurchaseAlert)
                     }
-                }
-                .navigationBarTitle(Text("Home").bold())
+                }.padding(EdgeInsets.init(top: 16, leading: 0, bottom: 0, trailing: 0))
+                .navigationBarTitle(Text("Galleria").bold())
                 .toolbar {
                     Button("Update inventory!") {
                         Inventory().updateInventoryFromOpenSea()

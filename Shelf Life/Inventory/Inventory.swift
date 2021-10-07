@@ -37,6 +37,10 @@ class Inventory: ObservableObject {
         paths_.append(contentsOf: ["frame-1"])
         
         paths_ = []
+
+        for i in 1...16 {
+            paths_.append("spec-" + String(i))
+        }
         
         self.objectImageViews = []
         self.userAddedObjectPaths = []
