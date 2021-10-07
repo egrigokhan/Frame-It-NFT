@@ -15,12 +15,13 @@ class Inventory: ObservableObject {
             generateImageViews()
         }
     }
-    @Published var userAddedObjectPaths: [String] {
+    @Published var spectatorObjectPaths: [String] {
         didSet {
             generateImageViews()
         }
     }
     @Published var objectImageViews: [InventoryImageView]
+    @Published var spectatorObjectImageViews: [InventoryImageView]
     
     init() {
         self.defaultObjectPaths = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-default-inventory") ?? []) as! [String]
@@ -42,26 +43,27 @@ class Inventory: ObservableObject {
             paths_.append("spec-" + String(i))
         }
         
-        self.objectImageViews = []
-        self.userAddedObjectPaths = []
-        self.defaultObjectPaths.append(contentsOf: paths_)
+        self.spectatorObjectPaths = paths_
+        // self.defaultObjectPaths.append(contentsOf: paths_)
         
-        self.userAddedObjectPaths = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-inventory") ?? []) as! [String]
+        // self.userAddedObjectPaths = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-inventory") ?? []) as! [String]
         self.objectImageViews = []
+        self.spectatorObjectImageViews = []
         self.generateImageViews()
     }
     
     private func generateImageViews() {
         self.objectImageViews = []
-        for o in self.userAddedObjectPaths {
+
+        for o in self.spectatorObjectPaths {
             do {
-                var data_ = UserDefaults(suiteName: "group.shelf-life")?.value(forKey: o) as! Data
-                var imageView = UIImage(data: data_) 
-                self.objectImageViews.append(InventoryImageView(imageView: imageView!))
+                var imageView = UIImage.init(named: o)
+                self.spectatorObjectImageViews.append(InventoryImageView(imageView: imageView!))
             } catch {
                 print("Error!")
             }
         }
+
         for o in self.defaultObjectPaths {
             if let image = UIImage.init(named: o) {
                 self.objectImageViews.append(InventoryImageView(imageView: image))

@@ -13,6 +13,7 @@ import SwiftUI
 enum ChildViewType {
     case COLOR
     case IMAGE
+    case SPECTATOR
 }
 
 struct ChildView: Identifiable, View {
@@ -41,8 +42,32 @@ struct ChildView: Identifiable, View {
                     .scaledToFit()
                     .frame(height: 80, alignment: .center)
                     .padding(16 / self.state.scale)
-                    // .border(Color.black, width: 6 / self.state.scale)
-                    // .background(Color.white)
+                    .border(Color.black, width: 6 / self.state.scale)
+                    .background(Color.white)
+                    .scaleEffect(self.state.scale)
+                    .offset(x: self.state.offset.x, y: self.state.offset.y)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { gesture in
+                                self.state.offset = gesture.location
+                                self.state.offset = CGPoint.init(x: floor(gesture.location.x / 5) * 5 - 6 / self.state.scale, y: floor(gesture.location.y / 5) * 5 - 6 / self.state.scale)
+                            }
+                    )
+                    .gesture(
+                        MagnificationGesture()
+                                .onChanged { value in
+                                    self.state.scale = floor((value.magnitude * 80) / 5) * 5 / 80
+                                }
+                            )
+            }
+        case .SPECTATOR:
+            VStack {
+                Image(uiImage: state.imageView)
+                    .interpolation(.none)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 80, alignment: .center)
+                    .padding(16 / self.state.scale)
                     .scaleEffect(self.state.scale)
                     .offset(x: self.state.offset.x, y: self.state.offset.y)
                     .gesture(

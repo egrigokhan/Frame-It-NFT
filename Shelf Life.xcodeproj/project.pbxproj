@@ -75,6 +75,8 @@
 		E3CC0C27267E2DFA0019E4DB /* ShelfBuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CC0C26267E2DFA0019E4DB /* ShelfBuildView.swift */; };
 		E3D5720227053358009526D2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D5720127053357009526D2 /* HomeView.swift */; };
 		E3D6ACCC268AFF3400F4F37B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3D6ACCB268AFF3400F4F37B /* Launch Screen.storyboard */; };
+		E3F48EE1270EC368009AABD5 /* VaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F48EE0270EC368009AABD5 /* VaultView.swift */; };
+		E3F48EE3270F02F3009AABD5 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F48EE2270F02F3009AABD5 /* CollectionView.swift */; };
 		E3FCEF76267F8FA3005C4BC3 /* UserDefaultsFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3082D37267ECA730090376A /* UserDefaultsFunctions.swift */; };
 		E3FCEF77267FAA57005C4BC3 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3082D2F267E9C620090376A /* Util.swift */; };
 		E3FDCA28269A5C700003A6C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3769234267DDE0100E2627B /* Assets.xcassets */; };
@@ -189,6 +191,8 @@
 		E3CC0C26267E2DFA0019E4DB /* ShelfBuildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfBuildView.swift; sourceTree = "<group>"; };
 		E3D5720127053357009526D2 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E3D6ACCB268AFF3400F4F37B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		E3F48EE0270EC368009AABD5 /* VaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaultView.swift; sourceTree = "<group>"; };
+		E3F48EE2270F02F3009AABD5 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		E3FCEF78267FC0DA005C4BC3 /* Shelf Life WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Shelf Life WidgetExtension.entitlements"; sourceTree = "<group>"; };
 		EB65C154EFB49231CFDD7EC0 /* Pods_Shelf_Life_Shelf_LifeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shelf_Life_Shelf_LifeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1B60686BEC901228A53828 /* Pods-Shelf Life-Shelf LifeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shelf Life-Shelf LifeUITests.release.xcconfig"; path = "Target Support Files/Pods-Shelf Life-Shelf LifeUITests/Pods-Shelf Life-Shelf LifeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -318,6 +322,8 @@
 				E3769234267DDE0100E2627B /* Assets.xcassets */,
 				E3769232267DDDFD00E2627B /* ContentView.swift */,
 				E3D5720127053357009526D2 /* HomeView.swift */,
+				E3F48EE0270EC368009AABD5 /* VaultView.swift */,
+				E3F48EE2270F02F3009AABD5 /* CollectionView.swift */,
 				E3769236267DDE0100E2627B /* Preview Content */,
 				E3CC0C26267E2DFA0019E4DB /* ShelfBuildView.swift */,
 				E3082D2F267E9C620090376A /* Util.swift */,
@@ -684,6 +690,7 @@
 				E3CC0C27267E2DFA0019E4DB /* ShelfBuildView.swift in Sources */,
 				E36A955C2687808D00FD7742 /* ChildImageView.swift in Sources */,
 				E3C7AAE22683E1D900CD6326 /* CGImagePropertyOrientation.swift in Sources */,
+				E3F48EE1270EC368009AABD5 /* VaultView.swift in Sources */,
 				E37DC9F02689EA7100B793CE /* PurchaseUtil.swift in Sources */,
 				E3C7AAE82683E1D900CD6326 /* CGImage+RawBytes.swift in Sources */,
 				E31DCC2926B6EC49002FC1A0 /* ChildView.swift in Sources */,
@@ -698,6 +705,7 @@
 				E3C7AAE02683E1D900CD6326 /* Predictions.swift in Sources */,
 				E3C7AAEC2683E47300CD6326 /* CreateObjectView.swift in Sources */,
 				E36A955A2687807100FD7742 /* ChildImageViewState.swift in Sources */,
+				E3F48EE3270F02F3009AABD5 /* CollectionView.swift in Sources */,
 				E36A95502687416400FD7742 /* Inventory.swift in Sources */,
 				E3082D30267E9C630090376A /* Util.swift in Sources */,
 				E3C7AAE42683E1D900CD6326 /* MLMultiArray+Helpers.swift in Sources */,

@@ -192,6 +192,18 @@ struct ShelfBuildView: View {
                     }
                 }
             }
+            if(isSpectatorsOn) {
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(inventory.spectatorObjectImageViews, id: \.id) { view in
+                            view.gesture(TapGesture()
+                                            .onEnded({ value in
+                                                self.state.shelfViews.append(ChildView.init(type: .SPECTATOR, colorComponents: [], offset: .zero, scale: 1.0, imageView: view.imageView))
+                            }))
+                        }
+                    }
+                }
+            }
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(inventory.objectImageViews, id: \.id) { view in

@@ -250,9 +250,10 @@ struct HomeView: View {
                 }.padding(EdgeInsets.init(top: 16, leading: 0, bottom: 0, trailing: 0))
                 .navigationBarTitle(Text("Galleria").bold())
                 .toolbar {
-                    Button("Update inventory!") {
-                        Inventory().updateInventoryFromOpenSea()
-                    }
+                    NavigationLink.init("Vault", destination: VaultView())
+                    // Button("Vault") {
+                    //     // Inventory().updateInventoryFromOpenSea()
+                    // }
                 }
             }
             .navigationViewStyle(StackNavigationViewStyle.init())
