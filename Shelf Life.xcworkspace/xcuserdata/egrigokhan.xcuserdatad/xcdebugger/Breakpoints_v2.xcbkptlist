@@ -78,10 +78,10 @@
             filePath = "Shelf Life Widget/Shelf_Life_Widget.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "Provider"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -94,25 +94,9 @@
             filePath = "Shelf Life Widget/Shelf_Life_Widget.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B01C7B84-C30B-46C3-B0B0-6F470F5F35DB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life Widget/Shelf_Life_Widget.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
-            landmarkName = "Shelf_Life_WidgetEntryView"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "Provider"
             landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
@@ -142,10 +126,10 @@
             filePath = "Shelf Life Widget/Shelf_Life_Widget.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "Provider"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -462,8 +446,8 @@
             filePath = "Shelf Life/ShelfBuildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -478,8 +462,8 @@
             filePath = "Shelf Life/ShelfBuildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -494,13 +478,13 @@
             filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "updateInventory()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "A22E9A55-9E3A-40FA-839E-9A6D3E413550 - 1ad498f74b9e455e"
+                  uuid = "A22E9A55-9E3A-40FA-839E-9A6D3E413550 - 1ad498f74b9e5193"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -510,12 +494,12 @@
                   urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/Inventory/Inventory.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
+                  startingLineNumber = "250"
+                  endingLineNumber = "250"
                   offsetFromSymbolStart = "910">
                </Location>
                <Location
-                  uuid = "A22E9A55-9E3A-40FA-839E-9A6D3E413550 - 1ad498f74b9e455e"
+                  uuid = "A22E9A55-9E3A-40FA-839E-9A6D3E413550 - 1ad498f74b9e5193"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -525,12 +509,12 @@
                   urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/Inventory/Inventory.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
+                  startingLineNumber = "250"
+                  endingLineNumber = "250"
                   offsetFromSymbolStart = "1220">
                </Location>
                <Location
-                  uuid = "A22E9A55-9E3A-40FA-839E-9A6D3E413550 - 8cd307a1dc38a00f"
+                  uuid = "A22E9A55-9E3A-40FA-839E-9A6D3E413550 - 8cd307a1dc38b5cc"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -540,8 +524,8 @@
                   urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/Inventory/Inventory.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
+                  startingLineNumber = "247"
+                  endingLineNumber = "247"
                   offsetFromSymbolStart = "237">
                </Location>
             </Locations>
@@ -557,8 +541,8 @@
             filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
             landmarkName = "updateInventory()"
             landmarkType = "7">
          </BreakpointContent>
@@ -573,8 +557,8 @@
             filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "downloadImage(from:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -589,8 +573,8 @@
             filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "updateInventory()"
             landmarkType = "7">
          </BreakpointContent>
@@ -637,8 +621,8 @@
             filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "updateInventoryFromOpenSea(accountAddress:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -653,8 +637,8 @@
             filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "updateInventoryFromOpenSea(accountAddress:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -671,8 +655,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
-            landmarkName = "ShelfTimelineHorizontalScrollItem_SMALL"
-            landmarkType = "14">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   uuid = "07CA10EA-8EC0-4528-B70B-FF2C86829E97 - 2eba28fa389083c7"
@@ -809,8 +793,8 @@
             filePath = "Shelf Life/ShelfBuildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -825,8 +809,8 @@
             filePath = "Shelf Life/ShelfBuildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -841,24 +825,8 @@
             filePath = "Shelf Life/ShelfBuildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1EB0C6F5-D4AC-4863-B618-38D594C08BA8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life/ShelfBuildView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -969,8 +937,8 @@
             filePath = "Shelf Life/ShelfBuildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1017,8 +985,56 @@
             filePath = "Shelf Life/ShelfBuildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9CDB49D7-CE85-41C6-8790-1F682DD9FE47"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shelf Life/Inventory/Inventory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "generateCollectionImageViews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "55448806-DD79-4153-87B1-75DC464D0E5A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shelf Life/Inventory/Inventory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "addImageToCollection(image:collectionId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FEEA6BD8-90F4-41E3-910B-CC6B10E17078"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shelf Life/ShelfBuildView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

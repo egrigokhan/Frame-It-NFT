@@ -104,6 +104,8 @@ struct ShelfBuildView: View {
     
     @State var isSpectatorsOn: Bool = false
     
+    @Binding var refresh: Bool
+    
     @State var id = UUID()
     
     var body: some View {
@@ -127,26 +129,25 @@ struct ShelfBuildView: View {
                     }
                     
                     for v in self.state.shelfViews {
-                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.pngData()!))
+                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.jpegData(compressionQuality: 0.5)!))
                     }
                     
                     if(self.isSpectatorsOn) {
-                        shelfStates.append(TransferState.init(id: "spec-1", offset: CGPoint.init(x: 0, y: 0), scale: 0.5, imageData: UIImage(named: "spec-1")!.pngData()!))
+                        shelfStates.append(TransferState.init(id: "spec-1", offset: CGPoint.init(x: 0, y: 0), scale: 0.5, imageData: UIImage(named: "spec-1")!.jpegData(compressionQuality: 0.5)!))
                     }
                     
                     self.shouldTakeScreenshot = true
                     
-                    // shelfStates.append(TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: -1, imageData: value.pngData()!))
+                    // shelfStates.append(TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: -1, imageData: value.jpegData(compressionQuality: 0.5)!))
                     
-                    print(state.timelineIndex)
-                    UserDefaultsFunctions.addTimelineObject(key: "widget_timeline_" + self.widgetType + self.widgetVariant, value: ["thumbnail": [TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: 1, imageData: value.pngData()!)], "ts": shelfStates], index: state.timelineIndex)
+                    UserDefaultsFunctions.addTimelineObject(key: "widget_timeline_" + self.widgetType + self.widgetVariant, value: ["thumbnail": [TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: 1, imageData: value.jpegData(compressionQuality: 0.5)!)], "ts": shelfStates], index: state.timelineIndex)
                     
                     self.notification = "🎉 Your shelf should now be updated!"
                     self.id = UUID()
                     
-                    DispatchQueue.main.async {
-                        WidgetCenter.shared.reloadAllTimelines()
-                    }
+                    // self.refresh.toggle()
+                    
+                    WidgetCenter.shared.reloadTimelines(ofKind: "Widgets") // WidgetCenter.shaared.reloadAllTimelines()
                 }
             }
             

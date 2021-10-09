@@ -135,10 +135,10 @@ struct ShelfHorizontalScroll: View {
                     }
                     
                     for v in (SMALL_DICT[1...]) {
-                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.pngData()!))
+                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.jpegData(compressionQuality: 0.5)!))
                     }
                     UserDefaultsFunctions.saveObject(key: "widget_small" + shelfVariant, value: shelfStates)
-                    WidgetCenter.shared.reloadAllTimelines()
+                    WidgetCenter.shared.reloadTimelines(ofKind: "Widgets")
 
                     }, label: {
                                 ZStack {
@@ -187,10 +187,10 @@ struct ShelfHorizontalScroll: View {
                     }
                     
                     for v in (MEDIUM_DICT[1...]) {
-                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.pngData()!))
+                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.jpegData(compressionQuality: 0.5)!))
                     }
                     UserDefaultsFunctions.saveObject(key: "widget_medium" + shelfVariant, value: shelfStates)
-                    WidgetCenter.shared.reloadAllTimelines()
+                    WidgetCenter.shared.reloadTimelines(ofKind: "Widgets")
 
                             }, label: {
                                 ZStack {
@@ -239,11 +239,11 @@ struct ShelfHorizontalScroll: View {
                     }
                     
                     for v in (LARGE_DICT![1...]) {
-                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.pngData()!))
+                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.jpegData(compressionQuality: 0.5)!))
                     }
                     UserDefaultsFunctions.saveObject(key: "widget_large" + shelfVariant, value: shelfStates)
                     
-                    WidgetCenter.shared.reloadAllTimelines()
+                    WidgetCenter.shared.reloadTimelines(ofKind: "Widgets")
 
                     }, label: {
                                 HStack {
@@ -282,7 +282,7 @@ struct ShelfHorizontalScroll: View {
                     self.SHELF_VARIANTS["VARIANT_SMALL"] = shelfVariant
                     
                     UserDefaultsFunctions.saveVariant(key: "shelf_variants", value: self.SHELF_VARIANTS)
-                    WidgetCenter.shared.reloadAllTimelines()
+                    WidgetCenter.shared.reloadTimelines(ofKind: "Widgets")
                     }, label: {
                                 ZStack {
                                     Image(uiImage: UIImage(systemName: "checkmark.square.fill")!)

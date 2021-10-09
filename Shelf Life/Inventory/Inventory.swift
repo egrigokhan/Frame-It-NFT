@@ -8,11 +8,26 @@
 import Foundation
 import UIKit
 
+struct CollectionRowView: Identifiable {
+    
+    let id = UUID()
+    var collectionId: String
+    var collectionTitle: String
+    var collectionPaths: [String]
+    var collectionImageViews: [InventoryImageView]
+}
+
+
 class Inventory: ObservableObject {
     
     @Published var defaultObjectPaths: [String] {
         didSet {
             generateImageViews()
+        }
+    }
+    @Published var collections: [[String:Any]] {
+        didSet {
+            generateCollectionImageViews()
         }
     }
     @Published var spectatorObjectPaths: [String] {
@@ -21,23 +36,15 @@ class Inventory: ObservableObject {
         }
     }
     @Published var objectImageViews: [InventoryImageView]
+    @Published var collectionImageViews: [CollectionRowView]
     @Published var spectatorObjectImageViews: [InventoryImageView]
     
     init() {
+        self.collections = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-collections") ?? []) as! [[String:Any]] // [["id": "before_sunrise", "title": "Before Sunrise", "paths": ["bob"]], ["id": "bob_dylan", "title": "Bob Dylan", "paths": ["bob", "bob_2"]]]//
         self.defaultObjectPaths = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-default-inventory") ?? []) as! [String]
 
         // UserDefaults.standard.set([], forKey: "shelf-life-inventory")
-        var paths_ = ["2", "3", "8", "9", "10"]
-        paths_.append(contentsOf: ["vase-1", "vase-2"])
-        paths_.append(contentsOf: ["basket-1"])
-        paths_.append(contentsOf: ["book-1", "book-2"])
-        paths_.append(contentsOf: ["plant-1", "plant-2", "plant-3", "plant-4", "plant-6", "plant-7"])
-        paths_.append(contentsOf: ["trophy-1", "trophy-2"])
-        paths_.append(contentsOf: ["statue-1", "statue-2", "statue-3", "statue-4"])
-        paths_.append(contentsOf: ["prop-1", "prop-2"])
-        paths_.append(contentsOf: ["frame-1"])
-        
-        paths_ = []
+        var paths_: [String] = []
 
         for i in 1...16 {
             paths_.append("spec-" + String(i))
@@ -46,10 +53,37 @@ class Inventory: ObservableObject {
         self.spectatorObjectPaths = paths_
         // self.defaultObjectPaths.append(contentsOf: paths_)
         
-        // self.userAddedObjectPaths = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-inventory") ?? []) as! [String]
+        self.defaultObjectPaths = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-inventory") ?? []) as! [String]
         self.objectImageViews = []
+        self.collectionImageViews = []
         self.spectatorObjectImageViews = []
         self.generateImageViews()
+        self.generateCollectionImageViews()
+    }
+    
+    private func generateCollectionImageViews() {
+        self.collectionImageViews = []
+        
+        for (i, c) in (self.collections).enumerated() {
+            var imageViews: [InventoryImageView] = []
+            for o in (c["paths"] as! [String]) {
+                if let image = UIImage.init(named: o) {
+                    imageViews.append(InventoryImageView(imageView: image))
+                } else {
+                    do {
+                        if let data_ = UserDefaults(suiteName: "group.shelf-life")?.value(forKey: o) as? Data {
+                            var imageView = UIImage(data: data_)
+                            imageViews.append(InventoryImageView(imageView: imageView!))
+                        }
+                    } catch {
+                        print("Error!")
+                    }
+                }
+            }
+            
+            
+            self.collectionImageViews.append(CollectionRowView.init(collectionId: c["id"] as! String, collectionTitle: c["title"] as! String, collectionPaths: c["paths"] as! [String], collectionImageViews: imageViews))
+        }
     }
     
     private func generateImageViews() {
@@ -88,8 +122,17 @@ class Inventory: ObservableObject {
         return path + "/" + name
     }
     
-    func addImage(image: UIImage) {
-        let imageData = image.pngData()
+    static func documentsPathForFileName(name: String) -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true);
+        let path = paths[0] as String;
+        print(path)
+        print(name)
+
+        return path + "/" + name
+    }
+    
+    func addImage(image: UIImage) -> String {
+        let imageData = image.jpegData(compressionQuality: 0.5)
         let relativePath = "shelf_life_user_added_\(NSDate.timeIntervalSinceReferenceDate)"
         let path = self.documentsPathForFileName(name: relativePath)
         do {
@@ -102,6 +145,56 @@ class Inventory: ObservableObject {
         } catch {
             print("Error!")
         }
+        return relativePath
+    }
+    
+    static func addImageToCollection(image: UIImage, collectionId: String) -> String {
+        let imageData = image.jpegData(compressionQuality: 0.5)
+        let relativePath = "shelf_life_user_added_\(NSDate.timeIntervalSinceReferenceDate)"
+        let path = self.documentsPathForFileName(name: relativePath)
+        do {
+            UserDefaults(suiteName: "group.shelf-life")!.set(imageData, forKey: relativePath)
+            var currentInventory = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-inventory") ?? []) as! [String]
+            currentInventory.append(relativePath)
+            UserDefaults(suiteName: "group.shelf-life")!.set(currentInventory, forKey: "shelf-life-inventory")
+            // UserDefaults.standard.set(relativePath, forKey: "shelf-life-inventory")
+            
+            var collections_  = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-collections") ?? []) as! [[String:Any]]
+            var collectionExists = false
+            for (i, c) in collections_.enumerated() {
+                if c["id"] as! String == collectionId {
+                    var paths_copy = (c["paths"] as! [String])
+                    paths_copy.insert(relativePath, at: 0)
+                    collections_[i]["paths"] = paths_copy
+                    collectionExists = true
+                }
+            }
+            UserDefaults(suiteName: "group.shelf-life")!.set(collections_, forKey: "shelf-life-collections")
+            
+            UserDefaults(suiteName: "group.shelf-life")!.synchronize()
+        } catch {
+            print("Error!")
+        }
+        return relativePath
+    }
+    
+    func addCollection(collection: CollectionRowView, image: UIImage) {
+        let relativePath = addImage(image: image)
+        var collections_  = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-collections") ?? []) as! [[String:Any]]
+        var collectionExists = false
+        for (i, c) in collections_.enumerated() {
+            if c["id"] as! String == collection.collectionId {
+                var paths_copy = (c["paths"] as! [String])
+                paths_copy.insert(relativePath, at: 0)
+                collections_[i]["paths"] = paths_copy
+                collectionExists = true
+            }
+        }
+        if(!collectionExists) {
+            collections_.insert(["id": collection.collectionId, "title": collection.collectionTitle, "paths": [relativePath], "imageViews": []], at: 0)
+        }
+        UserDefaults(suiteName: "group.shelf-life")!.set(collections_, forKey: "shelf-life-collections")
+        UserDefaults(suiteName: "group.shelf-life")!.synchronize()
     }
     
     func updateInventoryFromOpenSea(accountAddress: String = "0x198c46f639357ac2b288dafb81ed46f3d745bb31") {
@@ -122,7 +215,7 @@ class Inventory: ObservableObject {
                                 if(!currentDefaultInventory.contains(String(item["id"] as! Int))) {
                                     downloadImage(from: URL.init(string: item["image_preview_url"] as! String)!) { image in
                                         if(image != nil) {
-                                            let imageData = image!.pngData()
+                                            let imageData = image!.jpegData(compressionQuality: 0.5)
                                             let relativePath = String(item["id"] as! Int) as! String
                                             let path = self.documentsPathForFileName(name: relativePath)
                                             do {
@@ -165,7 +258,7 @@ class Inventory: ObservableObject {
                         for item in data {
                             if(!currentDefaultInventory.contains(item["title"]!)) {
                                 downloadImage(from: URL.init(string: item["url"]!)!) { image in
-                                    let imageData = image!.pngData()
+                                    let imageData = image!.jpegData(compressionQuality: 0.5)
                                     let relativePath = item["title"]!
                                     let path = self.documentsPathForFileName(name: relativePath)
                                     do {

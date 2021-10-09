@@ -19,8 +19,10 @@ struct ShelfTimelineHorizontalScrollItem_SMALL: View {
     @State var widgetVariant: String = "begroovyorleaveman"
     @State var timelineIndex: Int
     
+    @Binding var refresh: Bool
+    
     var body: some View {
-        NavigationLink(destination: ShelfBuildView.init(state: state, widgetType: self.$widgetType, widgetVariant: self.$widgetVariant)) {
+        NavigationLink(destination: ShelfBuildView.init(state: state, widgetType: self.$widgetType, widgetVariant: self.$widgetVariant, refresh: self.$refresh)) {
             ZStack {
                 // Color.init("light-background")
                             Image.init(uiImage: thumbnail).resizable().scaledToFit()
@@ -37,7 +39,11 @@ struct ShelfTimelineHorizontalScroll_SMALL: View {
     @State var widgetType: String = "small"
     @State var widgetVariant: String = "begroovyorleaveman"
     
-    @State var dummyRefresh = true
+    @State var dummyRefresh: Bool = false {
+        didSet {
+            self.TIMELINE_SMALL = UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_smallbegroovyorleaveman")
+        }
+    }
     
     // @State var state: ShelfBuildViewState = ShelfBuildViewState.init(widgetType: "small", shelfVariant: "begroovyorleaveman", )
     
@@ -65,17 +71,19 @@ struct ShelfTimelineHorizontalScroll_SMALL: View {
                 HStack(spacing: 10) {
                     ZStack {
                         HStack {
-                            buildNavigationLink(destination: ShelfBuildView.init(state: ShelfBuildViewState.init(widgetType: "small", shelfVariant:  "begroovyorleaveman", shelfViews: [], thumbnailImage: UIImage.init(), timelineIndex: -1), widgetType: self.$widgetType, widgetVariant: self.$widgetVariant))
+                            buildNavigationLink(destination: ShelfBuildView.init(state: ShelfBuildViewState.init(widgetType: "small", shelfVariant:  "begroovyorleaveman", shelfViews: [], thumbnailImage: UIImage.init(), timelineIndex: -1), widgetType: self.$widgetType, widgetVariant: self.$widgetVariant, refresh: self.$dummyRefresh))
                         }
                         Spacer()
                     }.frame(width: 72, height: Util.getWidgetSize(size: "small").height)
                     .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                     ForEach(0..<self.TIMELINE_SMALL.count) { index in
-                        ShelfTimelineHorizontalScrollItem_SMALL(state: ShelfBuildViewState.init(widgetType: "small", shelfVariant:  "begroovyorleaveman", shelfViews: self.TIMELINE_SMALL[index]["cv"]!, thumbnailImage: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index), thumbnail: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index)
+                        ShelfTimelineHorizontalScrollItem_SMALL(state: ShelfBuildViewState.init(widgetType: "small", shelfVariant:  "begroovyorleaveman", shelfViews: self.TIMELINE_SMALL[index]["cv"]!, thumbnailImage: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index), thumbnail: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index, refresh: self.$dummyRefresh)
                     }
                 }
                 }
                 .tabViewStyle(PageTabViewStyle())
+        }.onChange(of: self.dummyRefresh) { _ in
+            // self.TIMELINE_SMALL = UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_smallbegroovyorleaveman")
         }
     }
 }
@@ -89,8 +97,10 @@ struct ShelfTimelineHorizontalScrollItem_MEDIUM: View {
     @State var widgetVariant: String = "begroovyorleaveman"
     @State var timelineIndex: Int
     
+    @Binding var refresh: Bool
+    
     var body: some View {
-        NavigationLink(destination: ShelfBuildView.init(state: state, widgetType: self.$widgetType, widgetVariant: self.$widgetVariant)) {
+        NavigationLink(destination: ShelfBuildView.init(state: state, widgetType: self.$widgetType, widgetVariant: self.$widgetVariant, refresh: self.$refresh)) {
             ZStack {
                 // Color.init("light-background")
                             Image.init(uiImage: thumbnail).resizable().scaledToFit()
@@ -107,7 +117,11 @@ struct ShelfTimelineHorizontalScroll_MEDIUM: View {
     @State var widgetType: String = "medium"
     @State var widgetVariant: String = "begroovyorleaveman"
     
-    @State var dummyRefresh = true
+    @State var dummyRefresh: Bool = false {
+        didSet {
+            self.TIMELINE_SMALL = UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_mediumbegroovyorleaveman")
+        }
+    }
     
     // @State var state: ShelfBuildViewState = ShelfBuildViewState.init(widgetType: "small", shelfVariant: "begroovyorleaveman", )
     
@@ -135,17 +149,19 @@ struct ShelfTimelineHorizontalScroll_MEDIUM: View {
                 HStack(spacing: 10) {
                     ZStack {
                         HStack {
-                            buildNavigationLink(destination: ShelfBuildView.init(state: ShelfBuildViewState.init(widgetType: "medium", shelfVariant:  "begroovyorleaveman", shelfViews: [], thumbnailImage: UIImage.init(), timelineIndex: -1), widgetType: self.$widgetType, widgetVariant: self.$widgetVariant))
+                            buildNavigationLink(destination: ShelfBuildView.init(state: ShelfBuildViewState.init(widgetType: "medium", shelfVariant:  "begroovyorleaveman", shelfViews: [], thumbnailImage: UIImage.init(), timelineIndex: -1), widgetType: self.$widgetType, widgetVariant: self.$widgetVariant, refresh: self.$dummyRefresh))
                         }
                         Spacer()
                     }.frame(width: 72, height: Util.getWidgetSize(size: "medium").height)
                     .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                     ForEach(0..<self.TIMELINE_SMALL.count) { index in
-                        ShelfTimelineHorizontalScrollItem_MEDIUM(state: ShelfBuildViewState.init(widgetType: "medium", shelfVariant:  "begroovyorleaveman", shelfViews: self.TIMELINE_SMALL[index]["cv"]!, thumbnailImage: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index), thumbnail: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index)
+                        ShelfTimelineHorizontalScrollItem_MEDIUM(state: ShelfBuildViewState.init(widgetType: "medium", shelfVariant:  "begroovyorleaveman", shelfViews: self.TIMELINE_SMALL[index]["cv"]!, thumbnailImage: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index), thumbnail: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index, refresh: self.$dummyRefresh)
                     }
                 }
                 }
                 .tabViewStyle(PageTabViewStyle())
+        }.onChange(of: self.dummyRefresh) { _ in
+            // self.TIMELINE_SMALL = UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_mediumbegroovyorleaveman")
         }
     }
 }
@@ -159,8 +175,10 @@ struct ShelfTimelineHorizontalScrollItem_LARGE: View {
     @State var widgetVariant: String = "begroovyorleaveman"
     @State var timelineIndex: Int
     
+    @Binding var refresh: Bool
+    
     var body: some View {
-        NavigationLink(destination: ShelfBuildView.init(state: state, widgetType: self.$widgetType, widgetVariant: self.$widgetVariant)) {
+        NavigationLink(destination: ShelfBuildView.init(state: state, widgetType: self.$widgetType, widgetVariant: self.$widgetVariant, refresh: self.$refresh)) {
             ZStack {
                 // Color.init("light-background")
                             Image.init(uiImage: thumbnail).resizable().scaledToFit()
@@ -177,7 +195,11 @@ struct ShelfTimelineHorizontalScroll_LARGE: View {
     @State var widgetType: String = "large"
     @State var widgetVariant: String = "begroovyorleaveman"
     
-    @State var dummyRefresh = true
+    @State var dummyRefresh: Bool = false {
+        didSet {
+            self.TIMELINE_SMALL = UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_largebegroovyorleaveman")
+        }
+    }
     
     // @State var state: ShelfBuildViewState = ShelfBuildViewState.init(widgetType: "small", shelfVariant: "begroovyorleaveman", )
     
@@ -205,17 +227,19 @@ struct ShelfTimelineHorizontalScroll_LARGE: View {
                 HStack(spacing: 10) {
                     ZStack {
                         HStack {
-                            buildNavigationLink(destination: ShelfBuildView.init(state: ShelfBuildViewState.init(widgetType: "large", shelfVariant:  "begroovyorleaveman", shelfViews: [], thumbnailImage: UIImage.init(), timelineIndex: -1), widgetType: self.$widgetType, widgetVariant: self.$widgetVariant))
+                            buildNavigationLink(destination: ShelfBuildView.init(state: ShelfBuildViewState.init(widgetType: "large", shelfVariant:  "begroovyorleaveman", shelfViews: [], thumbnailImage: UIImage.init(), timelineIndex: -1), widgetType: self.$widgetType, widgetVariant: self.$widgetVariant, refresh: self.$dummyRefresh))
                         }
                         Spacer()
                     }.frame(width: 72, height: Util.getWidgetSize(size: "large").height)
                     .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                     ForEach(0..<self.TIMELINE_SMALL.count) { index in
-                        ShelfTimelineHorizontalScrollItem_LARGE(state: ShelfBuildViewState.init(widgetType: "large", shelfVariant:  "begroovyorleaveman", shelfViews: self.TIMELINE_SMALL[index]["cv"]!, thumbnailImage: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index), thumbnail: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index)
+                        ShelfTimelineHorizontalScrollItem_LARGE(state: ShelfBuildViewState.init(widgetType: "large", shelfVariant:  "begroovyorleaveman", shelfViews: self.TIMELINE_SMALL[index]["cv"]!, thumbnailImage: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index), thumbnail: self.TIMELINE_SMALL[index]["thumbnail"]![0].state.imageView, timelineIndex: index, refresh: self.$dummyRefresh)
                     }
                 }
                 }
                 .tabViewStyle(PageTabViewStyle())
+        }.onChange(of: self.dummyRefresh) { _ in
+            // self.TIMELINE_SMALL = UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_largebegroovyorleaveman")
         }
     }
 }
@@ -224,6 +248,8 @@ struct ShelfTimelineHorizontalScroll_LARGE: View {
 struct HomeView: View {
     
     @State private var showingPurchaseAlert = false
+    
+    @State var refresh: Bool = false
     
     init() {
         if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
@@ -250,7 +276,7 @@ struct HomeView: View {
                 }.padding(EdgeInsets.init(top: 16, leading: 0, bottom: 0, trailing: 0))
                 .navigationBarTitle(Text("Galleria").bold())
                 .toolbar {
-                    NavigationLink.init("Vault", destination: VaultView())
+                    NavigationLink.init("Vault", destination: CollectionView())
                     // Button("Vault") {
                     //     // Inventory().updateInventoryFromOpenSea()
                     // }

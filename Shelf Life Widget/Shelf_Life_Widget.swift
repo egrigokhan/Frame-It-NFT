@@ -86,24 +86,52 @@ struct InventoryImageView: View, Identifiable {
 */
 
 struct Provider: IntentTimelineProvider {
+    
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "medium")
+        SimpleEntry.init(date: Date(), configuration: ConfigurationIntent(), widgetSize: "small", thumbnail: UIImage.init(named: "bob")!)
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration, widgetSize: "medium")
-        completion(entry)
+        switch context.family {
+        case .systemSmall:
+            let currentDate = Date()
+            let dict = (UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_smallbegroovyorleaveman") as! [[String:[ChildView]]])
+            completion(SimpleEntry.init(date: currentDate, configuration: configuration, widgetSize: "small", thumbnail: dict[0]["thumbnail"]![0].state.imageView))
+        case .systemMedium:
+            let currentDate = Date()
+            let dict = (UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_mediumbegroovyorleaveman") as! [[String:[ChildView]]])
+            completion(SimpleEntry.init(date: currentDate, configuration: configuration, widgetSize: "medium", thumbnail: dict[0]["thumbnail"]![0].state.imageView))
+        case .systemLarge:
+            let currentDate = Date()
+            let dict = (UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_largebegroovyorleaveman") as! [[String:[ChildView]]])
+            completion(SimpleEntry.init(date: currentDate, configuration: configuration, widgetSize: "large", thumbnail: dict[0]["thumbnail"]![0].state.imageView))
+        }
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration, widgetSize: "medium")
-            entries.append(entry)
+        switch context.family {
+        case .systemSmall:
+            let currentDate = Date()
+            for (i, e) in (UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_smallbegroovyorleaveman") as! [[String:[ChildView]]]).enumerated() {
+                let entryDate = Calendar.current.date(byAdding: .minute, value: i, to: currentDate)!
+                entries.append(SimpleEntry.init(date: entryDate, configuration: configuration, widgetSize: "small", thumbnail: e["thumbnail"]![0].state.imageView))
+            }
+        case .systemMedium:
+            let currentDate = Date()
+            for (i, e) in (UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_mediumbegroovyorleaveman") as! [[String:[ChildView]]]).enumerated() {
+                let entryDate = Calendar.current.date(byAdding: .minute, value: i, to: currentDate)!
+                entries.append(SimpleEntry.init(date: entryDate, configuration: configuration, widgetSize: "medium", thumbnail: e["thumbnail"]![0].state.imageView))
+            }
+        case .systemLarge:
+            let currentDate = Date()
+            for (i, e) in (UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_largebegroovyorleaveman") as! [[String:[ChildView]]]).enumerated() {
+                let entryDate = Calendar.current.date(byAdding: .minute, value: i, to: currentDate)!
+                entries.append(SimpleEntry.init(date: entryDate, configuration: configuration, widgetSize: "large", thumbnail: e["thumbnail"]![0].state.imageView))
+        }
+        default:
+            entries = [SimpleEntry.init(date: Date(), configuration: configuration, widgetSize: "small", thumbnail: UIImage.init(named: "bob")!)]
         }
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
@@ -239,11 +267,14 @@ struct ShelfCanvasView_WIDGET: View {
     @State var widgetVariant: String
     @State var views: [ChildView]
     @State var backgroundColor: ChildView
+    @State var thumbnail: UIImage
     
     var body: some View {
         
                 ZStack {
                     backgroundColor
+                    Image(uiImage: thumbnail).resizable().scaledToFill()
+                    /*
                     // Color.init(.displayP3, red: 26/255, green: 11/255, blue: 2/255, opacity: 1.0)
                     Image("shelf_\(self.widgetType)\(self.widgetVariant)")
                         .interpolation(.none)
@@ -259,6 +290,7 @@ struct ShelfCanvasView_WIDGET: View {
                             .shadow(color: Color.black.opacity(0.1), radius: 0.1, x: 1, y: 0)
                             .shadow(color: Color.black.opacity(0.1), radius: 0.1, x: -1, y: 0)
                     }
+                     */
                 }.offset(x: 0, y: 0)
                     .unredacted()
     }
@@ -284,42 +316,20 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationIntent
     let widgetSize: String
+    let thumbnail: UIImage
 }
 
 struct Shelf_Life_WidgetEntryView : View {
     var entry: Provider.Entry
     // @State var views: [ChildImageView] = [] // UserDefaultsFunctions.readObject(key: "widget_SMALL")
     
-    @State var widgetTypes = [WidgetFamily.systemSmall: "small",
-                              WidgetFamily.systemMedium: "medium",
-                              WidgetFamily.systemLarge: "large"]
-    
-    @State var SMALL = "small"
-    @State var MEDIUM = "medium"
-    @State var LARGE = "large"
-    
-    @State var SMALL_VIEW = UserDefaultsFunctions.readObject(key: "widget_small")
-    @State var MEDIUM_VIEW = UserDefaultsFunctions.readObject(key: "widget_medium")
-    @State var LARGE_VIEW = UserDefaultsFunctions.readObject(key: "widget_large")
-    
-    @Environment(\.widgetFamily) var family
-
-        @ViewBuilder
+    @ViewBuilder
         var body: some View {
             
-            switch family {
-            case .systemSmall:
-                let SMALL_DICT = UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_smallbegroovyorleaveman") as! [[String:[ChildView]]]
-                ShelfCanvasView_WIDGET.init(widgetType: self.$SMALL, widgetVariant: UserDefaultsFunctions.readVariant(key: "shelf_variants")["VARIANT_SMALL"]!, views: Array(SMALL_DICT[0]["cv"]![1...]), backgroundColor: SMALL_DICT[0]["cv"]![0])
-            case .systemMedium:
-                let MEDIUM_DICT = UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_mediumbegroovyorleaveman") as! [[String:[ChildView]]]
-                ShelfCanvasView_WIDGET.init(widgetType: self.$MEDIUM, widgetVariant: UserDefaultsFunctions.readVariant(key: "shelf_variants")["VARIANT_MEDIUM"]!, views: Array(MEDIUM_DICT[0]["cv"]![1...]), backgroundColor: MEDIUM_DICT[0]["cv"]![0])
-            case .systemLarge:
-                let LARGE_DICT = UserDefaultsFunctions.readTimelineObject(key: "widget_timeline_largebegroovyorleaveman") as! [[String:[ChildView]]]
-                ShelfCanvasView_WIDGET.init(widgetType: self.$LARGE, widgetVariant: UserDefaultsFunctions.readVariant(key: "shelf_variants")["VARIANT_LARGE"]!, views: Array(LARGE_DICT[0]["cv"]![1...]), backgroundColor: LARGE_DICT[0]["cv"]![0])
-            default:
-                Text("Some other WidgetFamily in the future.")
-            }
+            ZStack {
+                Image(uiImage: entry.thumbnail).resizable().scaledToFill()
+            }.offset(x: 0, y: 0)
+                .unredacted()
 
         }
 }
@@ -340,11 +350,11 @@ struct Shelf_Life_Widget: Widget {
 struct Shelf_Life_Widget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Shelf_Life_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "small"))
+            Shelf_Life_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "small", thumbnail: UIImage.init(named: "bob")!))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
-            Shelf_Life_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "medium"))
+            Shelf_Life_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "medium", thumbnail: UIImage.init(named: "bob")!))
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
-            Shelf_Life_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "large"))
+            Shelf_Life_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "large", thumbnail: UIImage.init(named: "bob")!))
                 .previewContext(WidgetPreviewContext(family: .systemLarge))
         }
         

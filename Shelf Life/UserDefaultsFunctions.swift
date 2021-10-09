@@ -40,7 +40,7 @@ struct UserDefaultsFunctions {
 
         if let data = try? encoder.encode(value) {
             userDefaults!.set(data, forKey: key)
-            WidgetCenter.shared.reloadAllTimelines()
+            WidgetCenter.shared.reloadTimelines(ofKind: "Widgets")
         }
     }
     
@@ -62,14 +62,14 @@ struct UserDefaultsFunctions {
 
                 if let data = try? encoder.encode(d) {
                     userDefaults!.set(data, forKey: key)
-                    WidgetCenter.shared.reloadAllTimelines()
+                    WidgetCenter.shared.reloadTimelines(ofKind: "Widgets")
                 }
             } else {
                 let encoder = JSONEncoder()
 
                 if let data = try? encoder.encode([value]) {
                     userDefaults!.set(data, forKey: key)
-                    WidgetCenter.shared.reloadAllTimelines()
+                    WidgetCenter.shared.reloadTimelines(ofKind: "Widgets")
                 }
             }
         } else {
@@ -77,7 +77,7 @@ struct UserDefaultsFunctions {
 
             if let data = try? encoder.encode([value]) {
                 userDefaults!.set(data, forKey: key)
-                WidgetCenter.shared.reloadAllTimelines()
+                WidgetCenter.shared.reloadTimelines(ofKind: "Widgets")
             }
         }
     }
@@ -103,14 +103,14 @@ struct UserDefaultsFunctions {
                         } else {
                             var view: ChildView
                                 // var data_ = UserDefaults(suiteName: "group.shelf-life")?.value(forKey: ts.imageId) as! Data
-                                var imageView = UIImage(data: ts.imageData)
-                            view = ChildView.init(type: .IMAGE, colorComponents: [], offset: ts.offset, scale: ts.scale, imageView: imageView!)
-                            
-                            
-                            view.state.offset = ts.offset
-                            view.state.scale = ts.scale
+                            if let imageView = UIImage(data: ts.imageData) {
+                                view = ChildView.init(type: .IMAGE, colorComponents: [], offset: ts.offset, scale: ts.scale, imageView: imageView)
+                                
+                                view.state.offset = ts.offset
+                                view.state.scale = ts.scale
 
-                            civ.append(view)
+                                civ.append(view)
+                            }
                         }
                     }
                     civ.insert(backgroundColor, at: 0)
@@ -136,7 +136,7 @@ struct UserDefaultsFunctions {
 
         if let data = try? encoder.encode(value) {
             userDefaults!.set(data, forKey: key)
-            WidgetCenter.shared.reloadAllTimelines()
+            WidgetCenter.shared.reloadTimelines(ofKind: "Widgets")
         }
     }
     
