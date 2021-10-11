@@ -176,9 +176,9 @@ struct UserDefaultsFunctions {
                     return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(data: data_["thumbnail"]![0].imageData)!)], "cv": civ]
                 }
             }
-            return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(imageLiteralResourceName: "bob"))], "cv": [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]]
+            return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(imageLiteralResourceName: "placeholder"))], "cv": [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]]
         } else {
-            return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(imageLiteralResourceName: "bob"))], "cv": [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]]
+            return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(imageLiteralResourceName: "placeholder"))], "cv": [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]]
         }
     }
 }

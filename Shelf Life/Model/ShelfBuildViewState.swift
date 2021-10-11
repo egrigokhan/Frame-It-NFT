@@ -48,7 +48,7 @@ class ShelfBuildViewState: ObservableObject {
             self.shelfViews = Array(temp["cv"]![1..<(temp["cv"]!.count)])
             self.backgroundColor = temp["cv"]![0]
         } else {
-            self.thumbnailImage = UIImage.init(imageLiteralResourceName: "bob")
+            self.thumbnailImage = UIImage.init(imageLiteralResourceName: "placeholder")
             self.shelfViews = []
             self.backgroundColor = ChildView.init(type: .COLOR, colorComponents: [255, 0, 255], offset: .zero, scale: 1, imageView: UIImage.init())
         }

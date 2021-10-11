@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateObjectView: View {
     
     @State var input_image: UIImage = UIImage(imageLiteralResourceName: "bob_bg")
-    @State var output_image: UIImage = UIImage(imageLiteralResourceName: "bob")
+    @State var output_image: UIImage = UIImage(imageLiteralResourceName: "placeholder")
     
     @StateObject var viewModel = ViewModel()
     

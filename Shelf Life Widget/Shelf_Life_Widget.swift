@@ -88,7 +88,7 @@ struct InventoryImageView: View, Identifiable {
 struct Provider: IntentTimelineProvider {
     
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry.init(date: Date(), configuration: ConfigurationIntent(), widgetSize: "small", thumbnail: UIImage.init(named: "bob")!)
+        SimpleEntry.init(date: Date(), configuration: ConfigurationIntent(), widgetSize: "small", thumbnail: UIImage.init(named: "placeholder")!)
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
@@ -131,7 +131,7 @@ struct Provider: IntentTimelineProvider {
                 entries.append(SimpleEntry.init(date: entryDate, configuration: configuration, widgetSize: "large", thumbnail: e["thumbnail"]![0].state.imageView))
         }
         default:
-            entries = [SimpleEntry.init(date: Date(), configuration: configuration, widgetSize: "small", thumbnail: UIImage.init(named: "bob")!)]
+            entries = [SimpleEntry.init(date: Date(), configuration: configuration, widgetSize: "small", thumbnail: UIImage.init(named: "placeholder")!)]
         }
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
@@ -276,7 +276,7 @@ struct ShelfCanvasView_WIDGET: View {
                     Image(uiImage: thumbnail).resizable().scaledToFill()
                     /*
                     // Color.init(.displayP3, red: 26/255, green: 11/255, blue: 2/255, opacity: 1.0)
-                    Image("shelf_\(self.widgetType)\(self.widgetVariant)")
+                    Image("shelf_\(self.widgetTypKe)\(self.widgetVariant)")
                         .interpolation(.none)
                         .resizable()
                         .frame(width: Util.getWidgetSize(size: self.widgetType).width, height: Util.getWidgetSize(size: self.widgetType).height, alignment: .center)
@@ -291,7 +291,10 @@ struct ShelfCanvasView_WIDGET: View {
                             .shadow(color: Color.black.opacity(0.1), radius: 0.1, x: -1, y: 0)
                     }
                      */
-                }.offset(x: 0, y: 0)
+                }
+                .frame(width: Util.getWidgetSize(size: widgetType).width, height: Util.getWidgetSize(size: widgetType).height, alignment: .center)
+                .clipped()
+                .offset(x: 0, y: 0)
                     .unredacted()
     }
     
@@ -350,11 +353,11 @@ struct Shelf_Life_Widget: Widget {
 struct Shelf_Life_Widget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Shelf_Life_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "small", thumbnail: UIImage.init(named: "bob")!))
+            Shelf_Life_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "small", thumbnail: UIImage.init(named: "placeholder")!))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
-            Shelf_Life_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "medium", thumbnail: UIImage.init(named: "bob")!))
+            Shelf_Life_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "medium", thumbnail: UIImage.init(named: "placeholder")!))
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
-            Shelf_Life_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "large", thumbnail: UIImage.init(named: "bob")!))
+            Shelf_Life_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), widgetSize: "large", thumbnail: UIImage.init(named: "placeholder")!))
                 .previewContext(WidgetPreviewContext(family: .systemLarge))
         }
         

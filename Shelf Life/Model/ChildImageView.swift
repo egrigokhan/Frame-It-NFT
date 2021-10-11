@@ -14,7 +14,7 @@ struct ChildImageView: Identifiable, View {
     
     var id = UUID()
     
-    @ObservedObject var state: ChildImageViewState = ChildImageViewState.init(offset: .zero, scale: 1.0, imageView: UIImage(named: "bob")!)
+    @ObservedObject var state: ChildImageViewState = ChildImageViewState.init(offset: .zero, scale: 1.0, imageView: UIImage(named: "placeholder")!)
     
     init(offset_: CGPoint? = .zero,
          scale_: CGFloat? = 1.0,

@@ -40,7 +40,7 @@ class Inventory: ObservableObject {
     @Published var spectatorObjectImageViews: [InventoryImageView]
     
     init() {
-        self.collections = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-collections") ?? []) as! [[String:Any]] // [["id": "before_sunrise", "title": "Before Sunrise", "paths": ["bob"]], ["id": "bob_dylan", "title": "Bob Dylan", "paths": ["bob", "bob_2"]]]//
+        self.collections = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-collections") ?? []) as! [[String:Any]] // [["id": "before_sunrise", "title": "Before Sunrise", "paths": ["placeholder"]], ["id": "bob_dylan", "title": "Bob Dylan", "paths": ["placeholder", "bob_2"]]]//
         self.defaultObjectPaths = (UserDefaults(suiteName: "group.shelf-life")?.value(forKey: "shelf-life-default-inventory") ?? []) as! [String]
 
         // UserDefaults.standard.set([], forKey: "shelf-life-inventory")

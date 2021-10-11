@@ -21,12 +21,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-screen-image" translatesAutoresizingMaskIntoConstraints="NO" id="hg0-1L-4kX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="la.png" translatesAutoresizingMaskIntoConstraints="NO" id="hg0-1L-4kX">
                                 <rect key="frame" x="80" y="320" width="268" height="286"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v3.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEE-tK-UU9">
-                                <rect key="frame" x="20" y="847" width="388" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vCezanne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEE-tK-UU9">
+                                <rect key="frame" x="20" y="868" width="388" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="0.0"/>
                                 <color key="textColor" red="0.97575896979999999" green="0.92137205600000005" blue="0.93333393340000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -54,6 +54,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch-screen-image" width="3258" height="2637"/>
+        <image name="la.png" width="421.66665649414062" height="341.33334350585938"/>
     </resources>
 </document>

@@ -56,6 +56,7 @@
 		E3A0FD112683CE2400FF7474 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A0FD102683CE2400FF7474 /* CoreMedia.framework */; };
 		E3A0FD132683CE2900FF7474 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A0FD122683CE2900FF7474 /* CoreFoundation.framework */; };
 		E3A0FD152683CE2C00FF7474 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A0FD142683CE2C00FF7474 /* Accelerate.framework */; };
+		E3BFAE40271259D300E338EA /* la.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BFAE3F271259D300E338EA /* la.png */; };
 		E3C7AACD2683DAE100CD6326 /* DeepLabV3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E3C7AACC2683DAE100CD6326 /* DeepLabV3.mlmodel */; };
 		E3C7AADD2683E1D900CD6326 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C7AACF2683E1D800CD6326 /* Array+Extensions.swift */; };
 		E3C7AADE2683E1D900CD6326 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C7AAD02683E1D800CD6326 /* Math.swift */; };
@@ -173,6 +174,7 @@
 		E3A0FD102683CE2400FF7474 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		E3A0FD122683CE2900FF7474 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		E3A0FD142683CE2C00FF7474 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		E3BFAE3F271259D300E338EA /* la.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = la.png; path = "Shelf Life/Assets.xcassets/launch-screen-image.imageset/la.png"; sourceTree = "<group>"; };
 		E3C7AACC2683DAE100CD6326 /* DeepLabV3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3.mlmodel; sourceTree = "<group>"; };
 		E3C7AACF2683E1D800CD6326 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		E3C7AAD02683E1D800CD6326 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		E3769224267DDDFD00E2627B = {
 			isa = PBXGroup;
 			children = (
+				E3BFAE3F271259D300E338EA /* la.png */,
 				E3C7AACC2683DAE100CD6326 /* DeepLabV3.mlmodel */,
 				E3FCEF78267FC0DA005C4BC3 /* Shelf Life WidgetExtension.entitlements */,
 				E376922F267DDDFD00E2627B /* Shelf Life */,
@@ -562,6 +565,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3BFAE40271259D300E338EA /* la.png in Resources */,
 				E3C7AAEA2683E1D900CD6326 /* LICENSE.txt in Resources */,
 				E3769238267DDE0100E2627B /* Preview Assets.xcassets in Resources */,
 				E3D6ACCC268AFF3400F4F37B /* Launch Screen.storyboard in Resources */,

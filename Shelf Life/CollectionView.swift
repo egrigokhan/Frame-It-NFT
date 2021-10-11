@@ -99,12 +99,13 @@ struct CollectionGridView: View {
                     columns: layout,
                     spacing: 20
                 ) {
-                    
                     ForEach(inventory.collectionImageViews, id: \.id) { item in
                         NavigationLink(destination: VaultView.init(inventoryImageViews: item.collectionImageViews, item: item, refresh: self.$refresh)) {
                             buildCollectionView(item: item)
                         }
-                    }
+                    }.onDelete(perform: { indexSet in
+                        print("delete")
+                    })
                 }.padding(.all, 16)
             }
         }.onChange(of: self.refresh) { _ in
@@ -145,6 +146,7 @@ struct CollectionView: View {
                     print("add")
                     self.showSheet = true
                 }
+                .foregroundColor(Color.black)
             }
         }
         .sheet(isPresented: self.$showImagePicker, onDismiss: {
@@ -161,7 +163,9 @@ struct CollectionView: View {
                 Color.init("background")
                 VStack {
                     HStack {
-                        Text("Add Collection").font(Font.init(UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.bold))).multilineTextAlignment(.leading).padding(EdgeInsets.init(top: 0, leading: 0, bottom: 16, trailing: 0))
+                        Text("Add Collection")
+                            .foregroundColor(Color.black)
+                            .font(Font.init(UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.bold))).multilineTextAlignment(.leading).padding(EdgeInsets.init(top: 0, leading: 0, bottom: 16, trailing: 0))
                         Spacer()
                     }
                     TextField("Collection Title", text: self.$addCollectionTitle).padding(EdgeInsets.init(top: 16, leading: 16, bottom: 16, trailing: 16))
@@ -176,10 +180,17 @@ struct CollectionView: View {
                                     .font(Font.init(UIFont.systemFont(ofSize: 20, weight: .bold)))
                                     .multilineTextAlignment(.leading)
                                 Spacer()
-                                Text("0")
-                                    .bold()
-                                    .font(Font.init(UIFont.systemFont(ofSize: 12)))
-                                    .multilineTextAlignment(.trailing)
+                                if(self.addCollectionImage != nil) {
+                                    Text("1")
+                                        .bold()
+                                        .font(Font.init(UIFont.systemFont(ofSize: 12)))
+                                        .multilineTextAlignment(.trailing)
+                                } else {
+                                    Text("0")
+                                        .bold()
+                                        .font(Font.init(UIFont.systemFont(ofSize: 12)))
+                                        .multilineTextAlignment(.trailing)
+                                }
                             }
                             HStack {
                                 ZStack {
@@ -191,7 +202,7 @@ struct CollectionView: View {
                                             .scaledToFill()
                                             .layoutPriority(-1)
                                     } else {
-                                        Image(uiImage: UIImage.init(systemName: "plus")!)
+                                        Image.init(systemName: "plus")
                                             .interpolation(.none)
                                             .resizable()
                                             .scaledToFill()

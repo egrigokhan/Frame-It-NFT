@@ -25,10 +25,13 @@ struct ShelfCanvasView: View {
     var CanvasView: some View {
         ZStack {
             self.state.backgroundColor
+                .frame(width: Util.getWidgetSize(size: widgetType).width, height: Util.getWidgetSize(size: widgetType).height, alignment: .center)
+                .clipped()
             Image("shelf_\(self.widgetType)\(self.widgetVariant)")
                 .interpolation(.none)
                 .resizable()
                 .frame(width: Util.getWidgetSize(size: widgetType).width, height: Util.getWidgetSize(size: widgetType).height, alignment: .center)
+                .clipped()
             ForEach(self.state.shelfViews) { view in
                 view
                     // .shadow(radius: 1, x: 0, y: 5)
@@ -39,7 +42,10 @@ struct ShelfCanvasView: View {
                                     self.state.shelfViews = self.state.shelfViews.filter { $0.id != view.id }
                     }))
             }
-        }.onLongPressGesture {
+        }
+        .frame(width: Util.getWidgetSize(size: widgetType).width, height: Util.getWidgetSize(size: widgetType).height, alignment: .center)
+        .clipped()
+        .onLongPressGesture {
                 let shelfie = self.body.snapshot()
             
                 // notification = "📸 Saved your shelfie to your library!"
@@ -62,7 +68,7 @@ struct ShelfCanvasView: View {
                 UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
 
         }.onChange(of: shouldTakeScreenshot) { value in
-            if(value == true) {
+            if(self.shouldTakeScreenshot == true) {
                 self.screenshot = self.body.snapshot()
                 self.shouldTakeScreenshot = false
             }
@@ -75,7 +81,6 @@ struct ShelfCanvasView: View {
     var body: some View {
             CanvasView
                 .frame(width: Util.getWidgetSize(size: widgetType).width, height: Util.getWidgetSize(size: widgetType).height)
-            tempImg
     }
     
     func buildView(views: [AnyView], index: Int) -> AnyView {
@@ -130,10 +135,6 @@ struct ShelfBuildView: View {
                     
                     for v in self.state.shelfViews {
                         shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.jpegData(compressionQuality: 0.5)!))
-                    }
-                    
-                    if(self.isSpectatorsOn) {
-                        shelfStates.append(TransferState.init(id: "spec-1", offset: CGPoint.init(x: 0, y: 0), scale: 0.5, imageData: UIImage(named: "spec-1")!.jpegData(compressionQuality: 0.5)!))
                     }
                     
                     self.shouldTakeScreenshot = true
@@ -207,13 +208,16 @@ struct ShelfBuildView: View {
                     }
                 }
             }
-            ScrollView(.horizontal) {
-                HStack {
-                    ForEach(inventory.objectImageViews, id: \.id) { view in
-                        view.gesture(TapGesture()
-                                        .onEnded({ value in
-                                            self.state.shelfViews.append(ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView: view.imageView))
-                        }))
+            if(!isSpectatorsOn) {
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(inventory.objectImageViews, id: \.id) { view in
+                            view
+                                .gesture(TapGesture()
+                                            .onEnded({ value in
+                                                self.state.shelfViews.append(ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView: view.imageView))
+                            }))
+                        }
                     }
                 }
             }
@@ -227,7 +231,7 @@ struct ShelfBuildView: View {
             self.state.shelfViews = Array((UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(widgetVariant)") as! [String:[ChildView]])["cv"]![1...])
             self.state.backgroundColor = ((UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(widgetVariant)") as! [String:[ChildView]])["cv"]![0])
         }.toolbar {
-            Toggle.init("Spectators", isOn: self.$isSpectatorsOn)
+            Toggle.init("Spectators", isOn: self.$isSpectatorsOn).font(Font(UIFont.systemFont(ofSize: 16, weight: .bold)))
         }
     }
 }

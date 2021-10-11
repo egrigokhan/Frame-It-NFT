@@ -54,10 +54,13 @@ struct ShelfTimelineHorizontalScroll_SMALL: View {
                 Color.init("light-background")
                 HStack {
                     Image.init(systemName: "plus")
-                        .frame(width: 40, height: 40, alignment: Alignment.center)
-                        .foregroundColor(.black)
-                        .scaleEffect(2)
+                        .resizable()
+                                    .scaledToFill()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 32, height: 32)
                 }
+                .padding()
+
             }
             .frame(width: 40, height: 40, alignment: Alignment.center)
                         .foregroundColor(.black)
@@ -132,10 +135,13 @@ struct ShelfTimelineHorizontalScroll_MEDIUM: View {
                 Color.init("light-background")
                 HStack {
                     Image.init(systemName: "plus")
-                        .frame(width: 40, height: 40, alignment: Alignment.center)
-                        .foregroundColor(.black)
-                        .scaleEffect(2)
+                        .resizable()
+                                    .scaledToFill()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 32, height: 32)
                 }
+                .padding()
+
             }
             .frame(width: 40, height: 40, alignment: Alignment.center)
                         .foregroundColor(.black)
@@ -210,10 +216,13 @@ struct ShelfTimelineHorizontalScroll_LARGE: View {
                 Color.init("light-background")
                 HStack {
                     Image.init(systemName: "plus")
-                        .frame(width: 40, height: 40, alignment: Alignment.center)
-                        .foregroundColor(.black)
-                        .scaleEffect(2)
+                        .resizable()
+                                    .scaledToFill()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 32, height: 32)
                 }
+                .padding()
+
             }
             .frame(width: 40, height: 40, alignment: Alignment.center)
                         .foregroundColor(.black)
@@ -253,7 +262,7 @@ struct HomeView: View {
     
     init() {
         if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
-
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Baskerville", size: 48)!]
     }
 
     var body: some View {
@@ -274,9 +283,10 @@ struct HomeView: View {
                         // InventoryGridView(showingPurchaseAlert: self.$showingPurchaseAlert)
                     }
                 }.padding(EdgeInsets.init(top: 16, leading: 0, bottom: 0, trailing: 0))
-                .navigationBarTitle(Text("Galleria").bold())
+                .navigationBarTitle(Text("Galleria"), displayMode: .large)
                 .toolbar {
                     NavigationLink.init("Vault", destination: CollectionView())
+                        .foregroundColor(Color.black)
                     // Button("Vault") {
                     //     // Inventory().updateInventoryFromOpenSea()
                     // }

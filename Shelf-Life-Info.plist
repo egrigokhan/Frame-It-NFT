@@ -2,10 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Shelf Life needs to access your photos so that we can turn your objects into pixel art.</string>
 	<key>CFBundleDisplayName</key>
-	<string>Boaster!</string>
+	<string>Frame It!</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleName</key>
@@ -15,6 +13,8 @@
 	<key>NSAppleMusicUsageDescription</key>
 	<string>Shelf Life needs to access your photos so that we can turn your objects into pixel art.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Shelf Life needs to access your photos so that we can turn your objects into pixel art.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Shelf Life needs to access your photos so that we can turn your objects into pixel art.</string>
 	<key>UILaunchScreen</key>
 	<dict>
