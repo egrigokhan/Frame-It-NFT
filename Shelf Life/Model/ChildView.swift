@@ -14,6 +14,7 @@ enum ChildViewType {
     case COLOR
     case IMAGE
     case SPECTATOR
+    case FLOOR
 }
 
 struct ChildView: Identifiable, View {
@@ -56,14 +57,14 @@ struct ChildView: Identifiable, View {
                     .gesture(
                         MagnificationGesture()
                                 .onChanged { value in
-                                    self.state.scale = floor((value.magnitude * 80) / 5) * 5 / 80
+                                    self.state.scale = max(floor((value.magnitude * 80) / 5) * 5 / 80, 0.1)
                                 }
                             )
             }
         case .SPECTATOR:
             VStack {
                 Image(uiImage: state.imageView)
-                    .interpolation(.none)
+                    .interpolation(.medium)
                     .resizable()
                     .scaledToFit()
                     .frame(height: 80, alignment: .center)
@@ -83,6 +84,17 @@ struct ChildView: Identifiable, View {
                                     self.state.scale = floor((value.magnitude * 80) / 5) * 5 / 80
                                 }
                             )
+            }
+        case .FLOOR:
+            VStack {
+                Image(uiImage: UIImage.init(named: "floor")!)
+                    .interpolation(.medium)
+                    .resizable()
+                    .scaleEffect(x: 3, y: 1)
+                    .frame(height: 32, alignment: .top)
+                    // .scaleEffect(self.state.scale)
+                    .clipped()
+                    // .border(Color.red, width: 4)
             }
         default:
             VStack { }

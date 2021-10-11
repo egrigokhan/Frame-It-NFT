@@ -21,17 +21,21 @@ struct ShelfCanvasView: View {
     @ObservedObject var state: ShelfBuildViewState
         
     @Binding var notification: String
+    
+    @Binding var isSpectatorsOn: Bool
 
     var CanvasView: some View {
         ZStack {
             self.state.backgroundColor
                 .frame(width: Util.getWidgetSize(size: widgetType).width, height: Util.getWidgetSize(size: widgetType).height, alignment: .center)
                 .clipped()
-            Image("shelf_\(self.widgetType)\(self.widgetVariant)")
-                .interpolation(.none)
-                .resizable()
-                .frame(width: Util.getWidgetSize(size: widgetType).width, height: Util.getWidgetSize(size: widgetType).height, alignment: .center)
-                .clipped()
+
+            if(isSpectatorsOn) {
+                VStack {
+                    Spacer().frame(height: Util.getWidgetSize(size: widgetType).height - 32, alignment: .center)
+                    ChildView.init(type: .FLOOR, colorComponents: [], offset: .zero, scale: 1.0, imageView: UIImage.init(named: "floor")!).frame(height: 32, alignment: .center)
+                }
+            }
             ForEach(self.state.shelfViews) { view in
                 view
                     // .shadow(radius: 1, x: 0, y: 5)
@@ -50,7 +54,7 @@ struct ShelfCanvasView: View {
             
                 // notification = "📸 Saved your shelfie to your library!"
                         
-            let av = UIActivityViewController(activityItems: ["Check out my awesome shelf on Shelf-Life, available on the iOS App Store! #shelflife", shelfie, URL(string: "https://apps.apple.com/us/app/shelf-life/id1574161725")], applicationActivities: nil)
+            let av = UIActivityViewController(activityItems: ["Check out my gallery on Frame It!, available on the iOS App Store! #museumvibes #frameit", shelfie, URL(string: "https://apps.apple.com/us/app/shelf-life/id1574161725")], applicationActivities: nil)
             
             av.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
                 
@@ -100,7 +104,7 @@ struct ShelfBuildView: View {
     
     @StateObject var inventory: Inventory = Inventory()
     
-    @State var notification: String = "Double click objects to remove them. \n Press and hold to take a shelfie."
+    @State var notification: String = "Double click art works to remove them. \n Press and hold to immortalize your gallery."
     
     @State var shelfActivated: Bool = true
     
@@ -121,7 +125,7 @@ struct ShelfBuildView: View {
                 .multilineTextAlignment(.center)
                 .font(Font.system(size: 12))
             
-            ShelfCanvasView(widgetType: self.$widgetType, widgetVariant: self.$widgetVariant, shouldTakeScreenshot: self.$shouldTakeScreenshot, screenshot: self.$screenshot, state: self.state, notification: self.$notification)
+            ShelfCanvasView(widgetType: self.$widgetType, widgetVariant: self.$widgetVariant, shouldTakeScreenshot: self.$shouldTakeScreenshot, screenshot: self.$screenshot, state: self.state, notification: self.$notification, isSpectatorsOn: self.$isSpectatorsOn)
                 .onChange(of: screenshot) { value in
                 if(value != nil) {
                     var shelfStates: [TransferState] = []
