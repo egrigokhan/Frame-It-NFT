@@ -75,12 +75,12 @@ struct CollectionGridView: View {
             VStack {
                 HStack {
                     Text(item.collectionTitle)
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.init(UIColor.init(named: "text")!))
                         .font(Font.init(UIFont.systemFont(ofSize: 20, weight: .bold)))
                         .multilineTextAlignment(.leading)
                     Spacer()
                     Text(String((item.collectionImageViews).count))
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.init(UIColor.init(named: "text")!))
                         .font(Font.init(UIFont.systemFont(ofSize: 12, weight: .bold)))
                         .multilineTextAlignment(.trailing)
                 }
@@ -146,7 +146,7 @@ struct CollectionView: View {
                     print("add")
                     self.showSheet = true
                 }
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.init(UIColor.init(named: "text")!))
             }
         }
         .sheet(isPresented: self.$showImagePicker, onDismiss: {
@@ -164,7 +164,7 @@ struct CollectionView: View {
                 VStack {
                     HStack {
                         Text("Add Collection")
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.init(UIColor.init(named: "text")!))
                             .font(Font.init(UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.bold))).multilineTextAlignment(.leading).padding(EdgeInsets.init(top: 0, leading: 0, bottom: 16, trailing: 0))
                         Spacer()
                     }
@@ -203,11 +203,13 @@ struct CollectionView: View {
                                             .layoutPriority(-1)
                                     } else {
                                         Image.init(systemName: "plus")
+                        .renderingMode(.template)
                                             .interpolation(.none)
                                             .resizable()
                                             .scaledToFill()
                                             .layoutPriority(-1)
                                             .padding(32)
+                                            .foregroundColor(Color.init(UIColor.init(named: "text")!))
                                     }
                                 }.frame(width: 100, height: 100, alignment: Alignment.center)
                                     .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))

@@ -330,7 +330,7 @@ struct Shelf_Life_WidgetEntryView : View {
         var body: some View {
             
             ZStack {
-                Image(uiImage: entry.thumbnail).resizable().scaledToFill()
+                Image(uiImage: entry.thumbnail).interpolation(.medium).resizable().scaledToFill()
             }.offset(x: 0, y: 0)
                 .unredacted()
 

@@ -36,31 +36,33 @@ struct ChildView: Identifiable, View {
                 Color.init(UIColor.clear.cgColor)
             }
         case .IMAGE:
-            VStack {
-                Image(uiImage: state.imageView)
-                    .interpolation(.none)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 80, alignment: .center)
-                    .padding(16 / self.state.scale)
-                    .border(Color.black, width: 6 / self.state.scale)
-                    .background(Color.white)
-                    .scaleEffect(self.state.scale)
-                    .offset(x: self.state.offset.x, y: self.state.offset.y)
-                    .gesture(
-                        DragGesture()
-                            .onChanged { gesture in
-                                self.state.offset = gesture.location
-                                self.state.offset = CGPoint.init(x: floor(gesture.location.x / 5) * 5 - 6 / self.state.scale, y: floor(gesture.location.y / 5) * 5 - 6 / self.state.scale)
-                            }
-                    )
-                    .gesture(
-                        MagnificationGesture()
-                                .onChanged { value in
-                                    self.state.scale = max(floor((value.magnitude * 80) / 5) * 5 / 80, 0.1)
+            ZStack {
+                VStack {
+                    Image(uiImage: state.imageView)
+                        // .interpolation(.medium)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 80, alignment: .center)
+                        .padding(16 / self.state.scale)
+                        .border(Color.black, width: 6 / self.state.scale)
+                        .background(Color.white)
+                        .scaleEffect(self.state.scale)
+                        .offset(x: self.state.offset.x, y: self.state.offset.y)
+                        .gesture(
+                            DragGesture()
+                                .onChanged { gesture in
+                                    self.state.offset = gesture.location
+                                    self.state.offset = CGPoint.init(x: floor(gesture.location.x / 5) * 5 - 6 / self.state.scale, y: floor(gesture.location.y / 5) * 5 - 6 / self.state.scale)
                                 }
-                            )
-            }
+                        )
+                        .gesture(
+                            MagnificationGesture()
+                                    .onChanged { value in
+                                        self.state.scale = max(floor((value.magnitude * 80) / 5) * 5 / 80, 0.1)
+                                    }
+                                )
+                }
+            }.frame(height: 80, alignment: .center)
         case .SPECTATOR:
             VStack {
                 Image(uiImage: state.imageView)

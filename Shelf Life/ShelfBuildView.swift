@@ -113,7 +113,7 @@ struct ShelfBuildView: View {
     
     @State var isSpectatorsOn: Bool = false
     
-    @Binding var refresh: Bool
+    var refresh: () -> Void
     
     @State var id = UUID()
     
@@ -152,7 +152,7 @@ struct ShelfBuildView: View {
                     self.notification = "🎉 Your shelf should now be updated!"
                     self.id = UUID()
                     
-                    // self.refresh.toggle()
+                    self.refresh()
                     
                     WidgetCenter.shared.reloadTimelines(ofKind: "Widgets") // WidgetCenter.shaared.reloadAllTimelines()
                 }

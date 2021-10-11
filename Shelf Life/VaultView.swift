@@ -87,7 +87,7 @@ struct VaultView: View {
                 Button("Add Item") {
                     self.showImagePicker.toggle()
                 }
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.init(UIColor.init(named: "text")!))
             }
     }
         .sheet(isPresented: self.$showImagePicker, onDismiss: {
