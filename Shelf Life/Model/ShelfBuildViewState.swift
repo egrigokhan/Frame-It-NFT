@@ -28,7 +28,7 @@ class ShelfBuildViewState: ObservableObject {
             self.backgroundColor = shelfViews[0]
         } else {
             self.shelfViews = []
-            self.backgroundColor = ChildView.init(type: .COLOR, colorComponents: [1, 1, 0], offset: .zero, scale: 1.0, imageView: UIImage.init())
+            self.backgroundColor = ChildView.init(type: .COLOR, colorComponents: [1, 1, 0], offset: .zero, scale: 1.0, imageView: UIImage.init(), imagePath: nil)
         }
         /*
         var temp_ = UserDefaultsFunctions.readObject(key: "widget_\(widgetType)\(shelfVariant)") as? Any

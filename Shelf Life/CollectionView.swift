@@ -64,6 +64,7 @@ struct CollectionGridView: View {
                     }
                 }
             }
+ 
             Spacer()
         }
     }
@@ -126,8 +127,7 @@ struct CollectionView: View {
     @State private var addCollectionImage: UIImage?
     
     init() {
-        if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
-
+        // if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
     }
 
     var body: some View {
@@ -152,9 +152,9 @@ struct CollectionView: View {
         .sheet(isPresented: self.$showImagePicker, onDismiss: {
             self.showImagePicker.toggle()
         }, content: {
-            ImagePicker(sourceType: .photoLibrary) { image in
+            FrameItImagePicker(sourceType: .photoLibrary) { image in
                 if(image != nil) {
-                    self.addCollectionImage = image!
+                    self.addCollectionImage = image
                 }
                 self.showImagePicker.toggle()
             }

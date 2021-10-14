@@ -68,7 +68,7 @@ struct CreateObjectView: View {
             .tabViewStyle(PageTabViewStyle())
             }
             .fullScreenCover(isPresented: $viewModel.isPresentingImagePicker, content: {
-                ImagePicker(sourceType: viewModel.sourceType, completionHandler: viewModel.didSelectImage)
+                FrameItImagePicker(sourceType: viewModel.sourceType, completionHandler: viewModel.didSelectImage)
             })
         }
         
@@ -136,7 +136,7 @@ extension CreateObjectView {
             
             self.bgRemovedImage = resizedImage
             
-            let imageBase64String = resizedImage!.jpegData(compressionQuality: 0.5)?.base64EncodedString()
+            let imageBase64String = resizedImage!.jpegData(compressionQuality: 0.3)?.base64EncodedString()
                         loadingPixelatedImages = true
                         Util.requestPixelatedImage(base64: imageBase64String!) { (pixel_images) in
                             Purchase_CreateUserObject().decreaseTrials()
@@ -171,5 +171,51 @@ struct CreateObjectView_Previews: PreviewProvider {
     static var previews: some View {
         CreateObjectView()
             .previewDevice("iPhone 12 Pro Max")
+    }
+}
+
+struct FrameItImagePicker: UIViewControllerRepresentable {
+    @Environment(\.presentationMode) private var presentationMode
+    var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    // @Binding var selectedImage: UIImage
+    
+    var completionHandler: (UIImage) -> ()
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<FrameItImagePicker>) -> UIImagePickerController {
+
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = sourceType
+        imagePicker.delegate = context.coordinator
+
+        return imagePicker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<FrameItImagePicker>) {
+
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+        var parent: FrameItImagePicker
+
+        init(_ parent: FrameItImagePicker) {
+            self.parent = parent
+        }
+
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+            if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+                parent.completionHandler(image)
+                // parent.selectedImage = image
+            }
+
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+
     }
 }

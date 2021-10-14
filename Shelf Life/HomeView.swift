@@ -269,7 +269,7 @@ struct HomeView: View {
     @State var refresh: Bool = false
     
     init() {
-        if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
+        // if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Baskerville", size: 48)!]
     }
 

@@ -14,10 +14,10 @@
             filePath = "Shelf Life/Util.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "requestPixelatedImage(base64:success_callback:)"
-            landmarkType = "7">
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -142,8 +142,8 @@
             filePath = "Shelf Life/UserDefaultsFunctions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "readObject(key:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,8 +398,8 @@
             filePath = "Shelf Life/UserDefaultsFunctions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "readObject(key:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -414,8 +414,8 @@
             filePath = "Shelf Life/UserDefaultsFunctions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "readObject(key:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -446,13 +446,13 @@
             filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "updateInventory()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "A22E9A55-9E3A-40FA-839E-9A6D3E413550 - 1ad498f74b9e5193"
+                  uuid = "A22E9A55-9E3A-40FA-839E-9A6D3E413550 - 1ad498f74b9e56c9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -462,12 +462,12 @@
                   urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/Inventory/Inventory.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "250"
-                  endingLineNumber = "250"
+                  startingLineNumber = "256"
+                  endingLineNumber = "256"
                   offsetFromSymbolStart = "812">
                </Location>
                <Location
-                  uuid = "A22E9A55-9E3A-40FA-839E-9A6D3E413550 - 1ad498f74b9e5193"
+                  uuid = "A22E9A55-9E3A-40FA-839E-9A6D3E413550 - 1ad498f74b9e56c9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -477,12 +477,12 @@
                   urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/Inventory/Inventory.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "250"
-                  endingLineNumber = "250"
+                  startingLineNumber = "256"
+                  endingLineNumber = "256"
                   offsetFromSymbolStart = "1048">
                </Location>
                <Location
-                  uuid = "A22E9A55-9E3A-40FA-839E-9A6D3E413550 - 8cd307a1dc38b5cc"
+                  uuid = "A22E9A55-9E3A-40FA-839E-9A6D3E413550 - 8cd307a1dc38b286"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -492,8 +492,8 @@
                   urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/Inventory/Inventory.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "247"
-                  endingLineNumber = "247"
+                  startingLineNumber = "253"
+                  endingLineNumber = "253"
                   offsetFromSymbolStart = "284">
                </Location>
             </Locations>
@@ -509,8 +509,8 @@
             filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "updateInventory()"
             landmarkType = "7">
          </BreakpointContent>
@@ -525,8 +525,8 @@
             filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "downloadImage(from:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -541,8 +541,8 @@
             filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "updateInventory()"
             landmarkType = "7">
          </BreakpointContent>
@@ -557,8 +557,8 @@
             filePath = "Shelf Life/UserDefaultsFunctions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "saveObject(key:value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -567,22 +567,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FD910FD8-C49C-459C-8276-544FD7EFE7C3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life/Inventory/Inventory.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "updateInventoryFromOpenSea(accountAddress:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DA073B93-810D-4529-8918-845B20BCD108"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -598,109 +582,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "07CA10EA-8EC0-4528-B70B-FF2C86829E97"
+            uuid = "DA073B93-810D-4529-8918-845B20BCD108"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Shelf Life/HomeView.swift"
+            filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "ShelfTimelineHorizontalScrollItem_SMALL"
-            landmarkType = "14">
-            <Locations>
-               <Location
-                  uuid = "07CA10EA-8EC0-4528-B70B-FF2C86829E97 - 2eba28fa389083c7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "property wrapper backing initializer of Shelf_Life.ShelfTimelineHorizontalScrollItem_SMALL.state : Shelf_Life.ShelfBuildViewState"
-                  moduleName = "Shelf Life"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  uuid = "07CA10EA-8EC0-4528-B70B-FF2C86829E97 - 3f0688000057e5df"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shelf_Life.ShelfTimelineHorizontalScrollItem_SMALL.state.getter : Shelf_Life.ShelfBuildViewState"
-                  moduleName = "Shelf Life"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  uuid = "07CA10EA-8EC0-4528-B70B-FF2C86829E97 - 53b52399267b15f7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shelf_Life.ShelfTimelineHorizontalScrollItem_SMALL.state.setter : Shelf_Life.ShelfBuildViewState"
-                  moduleName = "Shelf Life"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "68">
-               </Location>
-               <Location
-                  uuid = "07CA10EA-8EC0-4528-B70B-FF2C86829E97 - 7f6bbd14b9e8a7ca"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shelf_Life.ShelfTimelineHorizontalScrollItem_SMALL.state.modify : Shelf_Life.ShelfBuildViewState"
-                  moduleName = "Shelf Life"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "8">
-               </Location>
-               <Location
-                  uuid = "07CA10EA-8EC0-4528-B70B-FF2C86829E97 - 9c2d64fefe4f0eae"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shelf_Life.ShelfTimelineHorizontalScrollItem_SMALL.state.modify : Shelf_Life.ShelfBuildViewState with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "Shelf Life"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  uuid = "07CA10EA-8EC0-4528-B70B-FF2C86829E97 - 87f209ae20e8f91e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shelf_Life.ShelfTimelineHorizontalScrollItem_SMALL.$state.getter : SwiftUI.ObservedObject&lt;Shelf_Life.ShelfBuildViewState&gt;.Wrapper"
-                  moduleName = "Shelf Life"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "104">
-               </Location>
-            </Locations>
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "updateInventoryFromOpenSea(accountAddress:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -738,70 +630,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F3A991E4-23FE-4697-B06A-5BA97BA05C10"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life/ShelfBuildView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1ED70A82-C390-48D6-B39D-746F128F0D1E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life/ShelfBuildView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "1ED70A82-C390-48D6-B39D-746F128F0D1E - c785159cbe07024c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #2 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.font(Swift.Optional&lt;SwiftUI.Font&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.onChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(of: &#x3c4;_1_0, perform: (&#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.VStack&lt;SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;)&gt;&gt;&gt;, SwiftUI.Spacer, SwiftUI.ScrollView&lt;SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Range&lt;Swift.Int&gt;, Swift.Int, &lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, Swift.Optional&lt;SwiftUI.ScrollView&lt;SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Shelf_Life.InventoryImageView&gt;, Foundation.UUID, &lt;&lt;opaque return type of SwiftUI.View.gesture&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.Gesture&gt;(_: &#x3c4;_1_0, including: SwiftUI.GestureMask) -&gt; some&gt;&gt;.0&gt;&gt;&gt;&gt;, Swift.Optional&lt;SwiftUI.ScrollView&lt;SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Shelf_Life.InventoryImageView&gt;, Foundation.UUID, &lt;&lt;opaque return type of SwiftUI.View.gesture&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.Gesture&gt;(_: &#x3c4;_1_0, including: SwiftUI.GestureMask) -&gt; some&gt;&gt;.0&gt;&gt;&gt;&gt;)&gt; in Shelf_Life.ShelfBuildView.body.getter : some"
-                  moduleName = "Shelf Life"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/ShelfBuildView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "163"
-                  endingLineNumber = "163"
-                  offsetFromSymbolStart = "520">
-               </Location>
-               <Location
-                  uuid = "1ED70A82-C390-48D6-B39D-746F128F0D1E - f253fb5fe0daeddb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #2 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.font(Swift.Optional&lt;SwiftUI.Font&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.onChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(of: &#x3c4;_1_0, perform: (&#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.VStack&lt;SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;)&gt;&gt;&gt;, SwiftUI.Spacer, SwiftUI.ScrollView&lt;SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Range&lt;Swift.Int&gt;, Swift.Int, &lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, Swift.Optional&lt;SwiftUI.ScrollView&lt;SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Shelf_Life.InventoryImageView&gt;, Foundation.UUID, &lt;&lt;opaque return type of SwiftUI.View.gesture&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.Gesture&gt;(_: &#x3c4;_1_0, including: SwiftUI.GestureMask) -&gt; some&gt;&gt;.0&gt;&gt;&gt;&gt;, Swift.Optional&lt;SwiftUI.ScrollView&lt;SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Shelf_Life.InventoryImageView&gt;, Foundation.UUID, &lt;&lt;opaque return type of SwiftUI.View.gesture&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.Gesture&gt;(_: &#x3c4;_1_0, including: SwiftUI.GestureMask) -&gt; some&gt;&gt;.0&gt;&gt;&gt;&gt;)&gt; in Shelf_Life.ShelfBuildView.body.getter : some"
-                  moduleName = "Shelf Life"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/egrigokhan/Downloads/Boaster!/Shelf%20Life/ShelfBuildView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "164"
-                  endingLineNumber = "164"
-                  offsetFromSymbolStart = "100">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "572D7968-DD6E-4A1F-9387-F7B211BCB2F9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -813,102 +641,6 @@
             endingLineNumber = "37"
             landmarkName = "saveTimelineObject(key:value:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "79BAEFA3-3AEA-41F3-A1DB-8D2B624C471F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life/UserDefaultsFunctions.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "readTimelineObject(key:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CF51601A-FB50-4247-AA54-6CDE13AB56E2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life/UserDefaultsFunctions.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "readTimelineObject(key:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EFBDE04D-EFD4-4915-93E3-FFDE277CE467"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life/UserDefaultsFunctions.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "readTimelineObject(key:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E4EE356B-218C-4C32-B2A0-963F593E2B28"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life/UserDefaultsFunctions.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "readTimelineObject(key:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C5406132-53B6-4E72-B2B5-1F9347E1F915"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life/UserDefaultsFunctions.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "readTimelineObject(key:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6E6975F2-6043-4B77-8621-E66586F46E6D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life/ShelfBuildView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "ShelfBuildView"
-            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -930,22 +662,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4031E3EE-FEC2-4590-94B5-4E3AA81D4D8A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life/UserDefaultsFunctions.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "readTimelineObject(key:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9CDB49D7-CE85-41C6-8790-1F682DD9FE47"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -953,8 +669,8 @@
             filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "generateCollectionImageViews()"
             landmarkType = "7">
          </BreakpointContent>
@@ -969,26 +685,10 @@
             filePath = "Shelf Life/Inventory/Inventory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "addImageToCollection(image:collectionId:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "90ED2F1C-008A-4492-9170-BBCA8CCC9649"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shelf Life/ShelfBuildView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "body"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1001,8 +701,8 @@
             filePath = "Shelf Life/ShelfBuildView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1051,22 +751,38 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "213"
             endingLineNumber = "213"
-            landmarkName = "buildNavigationLink(destination:)"
+            landmarkName = "refresh()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2CEA5736-4264-47EB-9726-21CDFB08C451"
+            uuid = "4B121428-4B87-401B-A710-E43FC0FFE6E1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Shelf Life/HomeView.swift"
+            filePath = "Shelf Life/UserDefaultsFunctions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "saveTimelineObject(key:value:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80C6513A-0FFE-451E-A76F-41C59470A793"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shelf Life/ShelfBuildView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

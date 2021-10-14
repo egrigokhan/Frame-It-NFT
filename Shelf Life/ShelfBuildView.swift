@@ -33,7 +33,7 @@ struct ShelfCanvasView: View {
             if(isSpectatorsOn) {
                 VStack {
                     Spacer().frame(height: Util.getWidgetSize(size: widgetType).height - 32, alignment: .center)
-                    ChildView.init(type: .FLOOR, colorComponents: [], offset: .zero, scale: 1.0, imageView: UIImage.init(named: "floor")!).frame(height: 32, alignment: .center)
+                    ChildView.init(type: .FLOOR, colorComponents: [], offset: .zero, scale: 1.0, imageView: UIImage.init(named: "floor")!, imagePath: "floor").frame(height: 32, alignment: .center)
                 }
             }
             ForEach(self.state.shelfViews) { view in
@@ -113,6 +113,9 @@ struct ShelfBuildView: View {
     
     @State var isSpectatorsOn: Bool = false
     
+    @State var selectedCollectionIndex: Int = 0
+    @State var selectedCollection: [String:Any] = ["title": "All", "views": Inventory().objectImageViews]
+
     var refresh: () -> Void
     
     @State var id = UUID()
@@ -134,18 +137,22 @@ struct ShelfBuildView: View {
                     self.state.backgroundColor = self.state.backgroundColor
                     
                     if(self.state.backgroundColor != nil) {
-                        shelfStates.append(TransferState.init(id: "background-color", isColor: true, colorRGB: (self.state.backgroundColor.state.colorComponents), offset: CGPoint.zero, scale: -1, imageData: Data.init()))
+                        var ts_ = TransferState.init(id: "background-color", isColor: true, colorRGB: (self.state.backgroundColor.state.colorComponents), offset: CGPoint.zero, scale: -1, imageData: Data.init(), imagePath: nil)
+                        ts_.clean()
+                        shelfStates.append(ts_) // imageData: Data.init()))
                     }
                     
                     for v in self.state.shelfViews {
-                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.jpegData(compressionQuality: 0.5)!))
+                        var ts_ = TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.jpegData(compressionQuality: 0.3)!, imagePath: v.state.imagePath)
+                        ts_.clean()
+                        shelfStates.append(ts_) // imageData: Data.init()))
                     }
                     
                     self.shouldTakeScreenshot = true
                     
-                    // shelfStates.append(TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: -1, imageData: value.jpegData(compressionQuality: 0.5)!))
+                    // shelfStates.append(TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: -1, imageData: value.jpegData(compressionQuality: 0.3)!))
                     
-                    UserDefaultsFunctions.addTimelineObject(key: "widget_timeline_" + self.widgetType + self.widgetVariant, value: ["thumbnail": [TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: 1, imageData: value.jpegData(compressionQuality: 0.5)!)], "ts": shelfStates], index: state.timelineIndex)
+                    UserDefaultsFunctions.addTimelineObject(key: "widget_timeline_" + self.widgetType + self.widgetVariant, value: ["thumbnail": [TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: 1, imageData: value.jpegData(compressionQuality: 0.3)!, imagePath: nil)], "ts": shelfStates], index: state.timelineIndex)
                     
                     self.shouldTakeScreenshot = false
                     
@@ -183,6 +190,66 @@ struct ShelfBuildView: View {
             }
             
             Spacer()
+            if(isSpectatorsOn) {
+                HStack {
+                    ZStack {
+                        HStack {
+                            Text("Spectators")
+                                .bold()
+                                .foregroundColor(Color.init("text"))
+                                .font(Font.init(UIFont.systemFont(ofSize: 16, weight: .bold)))
+                            Image(systemName: "arrowtriangle.down.fill").resizable().frame(width: 10, height: 7, alignment: .center).foregroundColor(Color.init("text"))
+                        }.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+                    }
+                    Spacer()
+                }
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(inventory.spectatorObjectImageViews, id: \.id) { view in
+                            view.gesture(TapGesture()
+                                            .onEnded({ value in
+                                                self.state.shelfViews.append(ChildView.init(type: .SPECTATOR, colorComponents: [], offset: .zero, scale: 1.0, imageView: view.imageView, imagePath: view.imagePath))
+                            }))
+                        }
+                    }
+                }
+            }
+            if(!isSpectatorsOn) {
+                HStack {
+                    ZStack {
+                        HStack {
+                            Text(selectedCollection["title"] as! String)
+                                .bold()
+                                .foregroundColor(Color.init("text"))
+                                .font(Font.init(UIFont.systemFont(ofSize: 16, weight: .bold)))
+                            Image(systemName: "arrowtriangle.down.fill").resizable().frame(width: 10, height: 7, alignment: .center).foregroundColor(Color.init("text"))
+                        }.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+                    }
+                    .onTapGesture {
+                        self.selectedCollectionIndex += 1
+                        self.selectedCollectionIndex = self.selectedCollectionIndex % (inventory.collectionImageViews.count + 1)
+                        
+                        if(self.selectedCollectionIndex == 0) {
+                            self.selectedCollection = ["title": "All", "views": inventory.objectImageViews]
+                        } else {
+                            self.selectedCollection = ["title": inventory.collectionImageViews[self.selectedCollectionIndex - 1].collectionTitle, "views": inventory.collectionImageViews[self.selectedCollectionIndex - 1].collectionImageViews]
+                        }
+                    }
+                    Spacer()
+                }
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(selectedCollection["views"] as! [InventoryImageView], id: \.id) { view in
+                            view
+                                .gesture(TapGesture()
+                                            .onEnded({ value in
+                                                self.state.shelfViews.append(ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView: view.imageView, imagePath: view.imagePath))
+                            }))
+                        }
+                    }
+                }
+            }
+            
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(0..<Util.BACKGROUND_COLORS.count) {i in
@@ -195,32 +262,7 @@ struct ShelfBuildView: View {
                         .frame(width: 32, height: 32, alignment: .center)
                         .cornerRadius(8)
                         .onTapGesture {
-                            self.state.backgroundColor = ChildView.init(type: .COLOR, colorComponents: (Util.BACKGROUND_COLORS[i].cgColor?.components!)!, offset: .zero, scale: 1.0, imageView: UIImage())
-                        }
-                    }
-                }
-            }
-            if(isSpectatorsOn) {
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(inventory.spectatorObjectImageViews, id: \.id) { view in
-                            view.gesture(TapGesture()
-                                            .onEnded({ value in
-                                                self.state.shelfViews.append(ChildView.init(type: .SPECTATOR, colorComponents: [], offset: .zero, scale: 1.0, imageView: view.imageView))
-                            }))
-                        }
-                    }
-                }
-            }
-            if(!isSpectatorsOn) {
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(inventory.objectImageViews, id: \.id) { view in
-                            view
-                                .gesture(TapGesture()
-                                            .onEnded({ value in
-                                                self.state.shelfViews.append(ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView: view.imageView))
-                            }))
+                            self.state.backgroundColor = ChildView.init(type: .COLOR, colorComponents: (Util.BACKGROUND_COLORS[i].cgColor?.components!)!, offset: .zero, scale: 1.0, imageView: UIImage(), imagePath: nil)
                         }
                     }
                 }

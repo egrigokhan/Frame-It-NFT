@@ -21,10 +21,10 @@ struct ChildView: Identifiable, View {
     
     var id = UUID()
         
-    @ObservedObject var state: ChildViewState = ChildViewState.init(type: .COLOR, offset: .zero, scale: 1.0, imageView: UIImage(named: "2")!, colorComponents: [])
+    @ObservedObject var state: ChildViewState = ChildViewState.init(type: .COLOR, offset: .zero, scale: 1.0, imageView: UIImage(named: "2")!, imagePath: "2", colorComponents: [])
 
-    init(type: ChildViewType, colorComponents: [CGFloat], offset: CGPoint, scale: CGFloat, imageView: UIImage) {
-        self.state = ChildViewState.init(type: type, offset: offset, scale: scale, imageView: imageView, colorComponents: colorComponents)
+    init(type: ChildViewType, colorComponents: [CGFloat], offset: CGPoint, scale: CGFloat, imageView: UIImage, imagePath: String?) {
+        self.state = ChildViewState.init(type: type, offset: offset, scale: scale, imageView: imageView, imagePath: imagePath, colorComponents: colorComponents)
     }
     
     var body: some View {

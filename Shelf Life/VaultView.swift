@@ -92,15 +92,15 @@ struct VaultView: View {
     }
         .sheet(isPresented: self.$showImagePicker, onDismiss: {
     }, content: {
-        ImagePicker(sourceType: .photoLibrary) { image in
+        FrameItImagePicker(sourceType: .photoLibrary) { image in
             if(image != nil) {
-                // let dictionary = UserDefaults(suiteName: "group.shelf-life")!.dictionaryRepresentation()
-                // dictionary.keys.forEach { key in
-                //     UserDefaults(suiteName: "group.shelf-life")!.removeObject(forKey: key)
-                // }
-                // UserDefaults.standard.removeSuite(named: "group.shelf-life")
-                Inventory.addImageToCollection(image: image!, collectionId: self.item.collectionId)
-                refresh.toggle()
+                let dictionary = UserDefaults(suiteName: "group.shelf-life")!.dictionaryRepresentation()
+                dictionary.keys.forEach { key in
+                    UserDefaults(suiteName: "group.shelf-life")!.removeObject(forKey: key)
+                }
+                UserDefaults.standard.removeSuite(named: "group.shelf-life")
+                // Inventory.addImageToCollection(image: image, collectionId: self.item.collectionId)
+                // refresh.toggle()
             }
             self.showImagePicker.toggle()
         }

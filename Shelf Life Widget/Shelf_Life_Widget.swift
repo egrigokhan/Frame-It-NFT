@@ -330,7 +330,45 @@ struct Shelf_Life_WidgetEntryView : View {
         var body: some View {
             
             ZStack {
-                Image(uiImage: entry.thumbnail).interpolation(.medium).resizable().scaledToFill()
+                Image(uiImage: entry.thumbnail).interpolation(.high).resizable().scaledToFill()
+                if(entry.widgetSize == "large") {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            ZStack {
+                                Image(uiImage: UIImage.init(named: "logo-text")!).interpolation(.high).resizable().renderingMode(.template).foregroundColor(Color.init("text")).frame(width: 1464/1140 * 20 + 20, height: 1464/1140 * 20 + 20, alignment: .center)
+                            }
+                            .background(
+                                Color.init("light-background").frame(width: 1464/1140 * 20 + 20, height: 1464/1140 * 20 + 20, alignment: .center)).cornerRadius(6)
+                            .frame(width: 1464/1140 * 20 + 20, height: 1464/1140 * 20 + 20, alignment: .center)
+                            .padding(16)
+                            .cornerRadius(6)
+                            .clipped()
+                            .opacity(1.0)
+                            .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+                        }
+                        Spacer()
+                    }
+                } else {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            ZStack {
+                                Image(uiImage: UIImage.init(named: "logo-text")!).interpolation(.high).resizable().renderingMode(.template).foregroundColor(Color.init("text")).frame(width: 1464/1140 * 14 + 14, height: 1464/1140 * 14 + 14, alignment: .center)
+                            }
+                            .background(
+                                Color.init("light-background").frame(width: 1464/1140 * 14 + 14, height: 1464/1140 * 14 + 14, alignment: .center)).cornerRadius(4)
+                            .frame(width: 1464/1140 * 14 + 14, height: 1464/1140 * 14 + 14, alignment: .center)
+                            .padding(16)
+                            .cornerRadius(4)
+                            .clipped()
+                            .opacity(1.0)
+                            .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+                        }
+                        Spacer()
+                    }
+                }
+                
             }.offset(x: 0, y: 0)
                 .unredacted()
 

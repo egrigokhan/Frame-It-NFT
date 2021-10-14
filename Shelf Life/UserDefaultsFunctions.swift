@@ -94,18 +94,23 @@ struct UserDefaultsFunctions {
                 d.forEach { data_ in
                     let data = data_["ts"]
                     var civ: [ChildView] = []
-                    var backgroundColor: ChildView = ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())
-                    var thumbnailImage: ChildView = ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())
+                    var backgroundColor: ChildView = ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init(), imagePath: nil)
+                    var thumbnailImage: ChildView = ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init(), imagePath: nil)
 
-                    for ts in data! {
+                    for var ts in data! {
+                        ts.setImageData()
                         if(ts.isColor) {
-                            backgroundColor = ChildView.init(type: .COLOR, colorComponents: ts.colorRGB, offset: .zero, scale: 1.0, imageView: UIImage.init())
+                            backgroundColor = ChildView.init(type: .COLOR, colorComponents: ts.colorRGB, offset: .zero, scale: 1.0, imageView: UIImage.init(), imagePath: nil)
                         } else {
                             var view: ChildView
                                 // var data_ = UserDefaults(suiteName: "group.shelf-life")?.value(forKey: ts.imageId) as! Data
-                            if let imageView = UIImage(data: ts.imageData) {
-                                view = ChildView.init(type: .IMAGE, colorComponents: [], offset: ts.offset, scale: ts.scale, imageView: imageView)
-                                
+                            if let imageView = UIImage(data: ts.imageData!) {
+                                if(ts.imagePath != nil && ts.imagePath!.contains("spec-")) {
+                                    view = ChildView.init(type: .SPECTATOR, colorComponents: [], offset: ts.offset, scale: ts.scale, imageView: imageView, imagePath: ts.imagePath)
+                                } else {
+                                    view = ChildView.init(type: .IMAGE, colorComponents: [], offset: ts.offset, scale: ts.scale, imageView: imageView, imagePath: ts.imagePath)
+                                }
+                                 
                                 view.state.offset = ts.offset
                                 view.state.scale = ts.scale
 
@@ -116,9 +121,9 @@ struct UserDefaultsFunctions {
                     civ.insert(backgroundColor, at: 0)
 
                     if(data_["thumbnail"]![0] != nil) {
-                        returnObjects.append(["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(data: data_["thumbnail"]![0].imageData)!)], "cv": civ])
+                        returnObjects.append(["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(data: data_["thumbnail"]![0].imageData!)!, imagePath: nil)], "cv": civ])
                     } else {
-                        returnObjects.append(["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(data: data_["thumbnail"]![0].imageData)!)], "cv": civ])
+                        returnObjects.append(["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(data: data_["thumbnail"]![0].imageData!)!, imagePath: nil)], "cv": civ])
                     }
                 }
                 return returnObjects
@@ -149,17 +154,17 @@ struct UserDefaultsFunctions {
             if let data_ = try? decoder.decode([String:[TransferState]].self, from: (value as! Data)) {
                 let data = data_["ts"]
                 var civ: [ChildView] = []
-                var backgroundColor: ChildView = ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())
-                var thumbnailImage: ChildView = ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())
+                var backgroundColor: ChildView = ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init(), imagePath: nil)
+                var thumbnailImage: ChildView = ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init(), imagePath: nil)
 
                 for ts in data! {
                     if(ts.isColor) {
-                        backgroundColor = ChildView.init(type: .COLOR, colorComponents: ts.colorRGB, offset: .zero, scale: 1.0, imageView: UIImage.init())
+                        backgroundColor = ChildView.init(type: .COLOR, colorComponents: ts.colorRGB, offset: .zero, scale: 1.0, imageView: UIImage.init(), imagePath: nil)
                     } else {
                         var view: ChildView
                             // var data_ = UserDefaults(suiteName: "group.shelf-life")?.value(forKey: ts.imageId) as! Data
-                            var imageView = UIImage(data: ts.imageData)
-                        view = ChildView.init(type: .IMAGE, colorComponents: [], offset: ts.offset, scale: ts.scale, imageView: imageView!)
+                            var imageView = UIImage(data: ts.imageData!)
+                        view = ChildView.init(type: .IMAGE, colorComponents: [], offset: ts.offset, scale: ts.scale, imageView: imageView!, imagePath: ts.imagePath)
                         
                         
                         view.state.offset = ts.offset
@@ -171,14 +176,14 @@ struct UserDefaultsFunctions {
                 civ.insert(backgroundColor, at: 0)
 
                 if(data_["thumbnail"]![0] as? Data != nil) {
-                    return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(data: data_["thumbnail"]![0].imageData)!)], "cv": civ]
+                    return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(data: data_["thumbnail"]![0].imageData!)!, imagePath: nil)], "cv": civ]
                 } else {
-                    return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(data: data_["thumbnail"]![0].imageData)!)], "cv": civ]
+                    return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(data: data_["thumbnail"]![0].imageData!)!, imagePath: nil)], "cv": civ]
                 }
             }
-            return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(imageLiteralResourceName: "placeholder"))], "cv": [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]]
+            return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(imageLiteralResourceName: "placeholder"), imagePath: nil)], "cv": [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init(), imagePath: nil)]]
         } else {
-            return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(imageLiteralResourceName: "placeholder"))], "cv": [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init())]]
+            return ["thumbnail": [ChildView.init(type: .IMAGE, colorComponents: [], offset: .zero, scale: 1.0, imageView:  UIImage(imageLiteralResourceName: "placeholder"), imagePath: nil)], "cv": [ChildView.init(type: .COLOR, colorComponents: UIColor.clear.cgColor.components!, offset: .zero, scale: 1.0, imageView: UIImage.init(), imagePath: nil)]]
         }
     }
 }
