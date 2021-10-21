@@ -23,20 +23,24 @@
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="la.png" translatesAutoresizingMaskIntoConstraints="NO" id="hg0-1L-4kX">
                                 <rect key="frame" x="80" y="320" width="268" height="286"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="286" id="qhn-1U-p9p"/>
+                                    <constraint firstAttribute="width" constant="268" id="zbh-N5-vuB"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vCezanne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEE-tK-UU9">
                                 <rect key="frame" x="20" y="868" width="388" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="0.0"/>
-                                <color key="textColor" red="0.97575896979999999" green="0.92137205600000005" blue="0.93333393340000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
-                        <color key="backgroundColor" red="0.90588235294117647" green="0.88235294117647056" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.29411764705882354" green="0.29019607843137252" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
                             <constraint firstItem="hEE-tK-UU9" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="632-Jm-DXq"/>
-                            <constraint firstItem="hg0-1L-4kX" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="276" id="6J4-Kc-EDh"/>
+                            <constraint firstItem="hg0-1L-4kX" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="7kZ-1x-X2w"/>
                             <constraint firstItem="hg0-1L-4kX" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="7rK-7T-v9B"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="hEE-tK-UU9" secondAttribute="bottom" constant="24" id="DgT-Ez-KxL"/>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
@@ -54,6 +58,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="la.png" width="421.66665649414062" height="341.33334350585938"/>
+        <image name="la.png" width="1086" height="861"/>
     </resources>
 </document>

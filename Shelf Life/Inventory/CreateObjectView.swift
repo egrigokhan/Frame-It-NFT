@@ -136,7 +136,7 @@ extension CreateObjectView {
             
             self.bgRemovedImage = resizedImage
             
-            let imageBase64String = resizedImage!.jpegData(compressionQuality: 0.3)?.base64EncodedString()
+            let imageBase64String = resizedImage!.pngData()?.base64EncodedString()
                         loadingPixelatedImages = true
                         Util.requestPixelatedImage(base64: imageBase64String!) { (pixel_images) in
                             Purchase_CreateUserObject().decreaseTrials()

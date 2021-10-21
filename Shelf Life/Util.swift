@@ -13,6 +13,8 @@ import Photos
 struct Util {
     
     static var BACKGROUND_COLORS = [
+                                    Color.init(red: 250/255, green: 250/255, blue: 250/255),
+                                    Color.init(red: 15/255, green: 15/255, blue: 15/255),
                                     Color.init(red: 94/255, green: 25/255, blue: 18/255),
                                     Color.init(red: 75/255, green: 74/255, blue: 49/255),
                                     Color.init(red: 103/255, green: 91/255, blue: 81/255),

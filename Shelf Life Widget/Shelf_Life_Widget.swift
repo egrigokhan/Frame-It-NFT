@@ -273,10 +273,9 @@ struct ShelfCanvasView_WIDGET: View {
         
                 ZStack {
                     backgroundColor
-                    Image(uiImage: thumbnail).resizable().scaledToFill()
-                    /*
+                    // Image(uiImage: thumbnail).resizable().scaledToFill()
                     // Color.init(.displayP3, red: 26/255, green: 11/255, blue: 2/255, opacity: 1.0)
-                    Image("shelf_\(self.widgetTypKe)\(self.widgetVariant)")
+                    Image("shelf_\(self.widgetType)\(self.widgetVariant)")
                         .interpolation(.none)
                         .resizable()
                         .frame(width: Util.getWidgetSize(size: self.widgetType).width, height: Util.getWidgetSize(size: self.widgetType).height, alignment: .center)
@@ -284,13 +283,12 @@ struct ShelfCanvasView_WIDGET: View {
                     
                     ForEach(views, id: \.id.uuidString) { view in
                         ZStack {
-                            ChildView.init(type: ChildViewType.IMAGE, colorComponents: [], offset: view.state.offset, scale: view.state.scale, imageView: view.state.imageView)
+                            ChildView.init(type: ChildViewType.IMAGE, colorComponents: [], offset: view.state.offset, scale: view.state.scale, imageView: view.state.imageView, imagePath: view.state.imagePath)
                         }
                             .shadow(color: Color.black.opacity(0.1), radius: 0.1, x: 0, y: 5)
                             .shadow(color: Color.black.opacity(0.1), radius: 0.1, x: 1, y: 0)
                             .shadow(color: Color.black.opacity(0.1), radius: 0.1, x: -1, y: 0)
                     }
-                     */
                 }
                 .frame(width: Util.getWidgetSize(size: widgetType).width, height: Util.getWidgetSize(size: widgetType).height, alignment: .center)
                 .clipped()
@@ -330,7 +328,8 @@ struct Shelf_Life_WidgetEntryView : View {
         var body: some View {
             
             ZStack {
-                Image(uiImage: entry.thumbnail).interpolation(.high).resizable().scaledToFill()
+                // Image(uiImage: entry.thumbnail).interpolation(.high).resizable().scaledToFill()
+                ShelfCanvasView_WIDGET.init(widgetType: self.$SMALL, widgetVariant: "begroovyorleaveman", views: entry., backgroundColor: SMALL_DICT[0])
                 if(entry.widgetSize == "large") {
                     VStack {
                         HStack {

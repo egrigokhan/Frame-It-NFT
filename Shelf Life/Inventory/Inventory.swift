@@ -133,7 +133,7 @@ class Inventory: ObservableObject {
     }
     
     func addImage(image: UIImage) -> String {
-        let imageData = image.jpegData(compressionQuality: 0.3)
+        let imageData = image.pngData()
         let relativePath = "shelf_life_user_added_\(NSDate.timeIntervalSinceReferenceDate)"
         let path = self.documentsPathForFileName(name: relativePath)
         do {
@@ -150,7 +150,7 @@ class Inventory: ObservableObject {
     }
     
     static func addImageToCollection(image: UIImage, collectionId: String) -> String {
-        let imageData = image.jpegData(compressionQuality: 0.3)
+        let imageData = image.pngData()
         let relativePath = "shelf_life_user_added_\(NSDate.timeIntervalSinceReferenceDate)"
         let path = self.documentsPathForFileName(name: relativePath)
         do {
@@ -216,7 +216,7 @@ class Inventory: ObservableObject {
                                 if(!currentDefaultInventory.contains(String(item["id"] as! Int))) {
                                     downloadImage(from: URL.init(string: item["image_preview_url"] as! String)!) { image in
                                         if(image != nil) {
-                                            let imageData = image!.jpegData(compressionQuality: 0.3)
+                                            let imageData = image!.pngData()
                                             let relativePath = String(item["id"] as! Int) as! String
                                             let path = self.documentsPathForFileName(name: relativePath)
                                             do {
@@ -259,7 +259,7 @@ class Inventory: ObservableObject {
                         for item in data {
                             if(!currentDefaultInventory.contains(item["title"]!)) {
                                 downloadImage(from: URL.init(string: item["url"]!)!) { image in
-                                    let imageData = image!.jpegData(compressionQuality: 0.3)
+                                    let imageData = image!.pngData()
                                     let relativePath = item["title"]!
                                     let path = self.documentsPathForFileName(name: relativePath)
                                     do {

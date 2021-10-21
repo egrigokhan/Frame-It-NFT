@@ -270,7 +270,7 @@ struct HomeView: View {
     
     init() {
         // if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Baskerville", size: 48)!]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Baskerville-Bold", size: 48)!]
     }
 
     var body: some View {

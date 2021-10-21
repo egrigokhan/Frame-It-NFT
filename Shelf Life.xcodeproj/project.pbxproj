@@ -25,6 +25,7 @@
 		E31DCC2A26B6EC49002FC1A0 /* ChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DCC2826B6EC49002FC1A0 /* ChildView.swift */; };
 		E31DCC2C26B6EC5A002FC1A0 /* ChildViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DCC2B26B6EC5A002FC1A0 /* ChildViewState.swift */; };
 		E31DCC2D26B6EC5A002FC1A0 /* ChildViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DCC2B26B6EC5A002FC1A0 /* ChildViewState.swift */; };
+		E363EF40271954E600C6B1EB /* Shelf-Life-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E363EF3F271954E600C6B1EB /* Shelf-Life-Info.plist */; };
 		E36A95502687416400FD7742 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36A954F2687416400FD7742 /* Inventory.swift */; };
 		E36A955226876C3800FD7742 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36A954F2687416400FD7742 /* Inventory.swift */; };
 		E36A955526877FC900FD7742 /* TransferState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36A955426877FC900FD7742 /* TransferState.swift */; };
@@ -39,7 +40,6 @@
 		E3769233267DDDFD00E2627B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3769232267DDDFD00E2627B /* ContentView.swift */; };
 		E3769235267DDE0100E2627B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3769234267DDE0100E2627B /* Assets.xcassets */; };
 		E3769238267DDE0100E2627B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3769237267DDE0100E2627B /* Preview Assets.xcassets */; };
-		E3769242267DDE0100E2627B /* Shelf_LifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3769241267DDE0100E2627B /* Shelf_LifeTests.swift */; };
 		E376924C267DDE0100E2627B /* Shelf_LifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376924B267DDE0100E2627B /* Shelf_LifeUITests.swift */; };
 		E376925F267DDE2600E2627B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E376925E267DDE2600E2627B /* WidgetKit.framework */; };
 		E3769261267DDE2600E2627B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3769260267DDE2600E2627B /* SwiftUI.framework */; };
@@ -56,8 +56,6 @@
 		E3A0FD112683CE2400FF7474 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A0FD102683CE2400FF7474 /* CoreMedia.framework */; };
 		E3A0FD132683CE2900FF7474 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A0FD122683CE2900FF7474 /* CoreFoundation.framework */; };
 		E3A0FD152683CE2C00FF7474 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A0FD142683CE2C00FF7474 /* Accelerate.framework */; };
-		E3BFAE40271259D300E338EA /* la.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BFAE3F271259D300E338EA /* la.png */; };
-		E3C7AACD2683DAE100CD6326 /* DeepLabV3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E3C7AACC2683DAE100CD6326 /* DeepLabV3.mlmodel */; };
 		E3C7AADD2683E1D900CD6326 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C7AACF2683E1D800CD6326 /* Array+Extensions.swift */; };
 		E3C7AADE2683E1D900CD6326 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C7AAD02683E1D800CD6326 /* Math.swift */; };
 		E3C7AADF2683E1D900CD6326 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C7AAD12683E1D800CD6326 /* UIImage+CVPixelBuffer.swift */; };
@@ -82,6 +80,7 @@
 		E3FCEF76267F8FA3005C4BC3 /* UserDefaultsFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3082D37267ECA730090376A /* UserDefaultsFunctions.swift */; };
 		E3FCEF77267FAA57005C4BC3 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3082D2F267E9C620090376A /* Util.swift */; };
 		E3FDCA28269A5C700003A6C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3769234267DDE0100E2627B /* Assets.xcassets */; };
+		E3FF195B27190D7A001313BA /* la.png in Resources */ = {isa = PBXBuildFile; fileRef = E3FF195927190D62001313BA /* la.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +144,7 @@
 		E31DCC2526B6E42C002FC1A0 /* ChildColorViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildColorViewState.swift; sourceTree = "<group>"; };
 		E31DCC2826B6EC49002FC1A0 /* ChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildView.swift; sourceTree = "<group>"; };
 		E31DCC2B26B6EC5A002FC1A0 /* ChildViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViewState.swift; sourceTree = "<group>"; };
+		E363EF3F271954E600C6B1EB /* Shelf-Life-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Shelf-Life-Info.plist"; sourceTree = "<group>"; };
 		E36A954F2687416400FD7742 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
 		E36A955426877FC900FD7742 /* TransferState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferState.swift; sourceTree = "<group>"; };
 		E36A95572687804200FD7742 /* InventoryImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryImageView.swift; sourceTree = "<group>"; };
@@ -156,7 +156,6 @@
 		E3769234267DDE0100E2627B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3769237267DDE0100E2627B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E376923D267DDE0100E2627B /* Shelf LifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shelf LifeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3769241267DDE0100E2627B /* Shelf_LifeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelf_LifeTests.swift; sourceTree = "<group>"; };
 		E3769247267DDE0100E2627B /* Shelf LifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shelf LifeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E376924B267DDE0100E2627B /* Shelf_LifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelf_LifeUITests.swift; sourceTree = "<group>"; };
 		E376925C267DDE2600E2627B /* Shelf Life WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Shelf Life WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,8 +173,6 @@
 		E3A0FD102683CE2400FF7474 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		E3A0FD122683CE2900FF7474 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		E3A0FD142683CE2C00FF7474 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		E3BFAE3F271259D300E338EA /* la.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = la.png; path = "Shelf Life/Assets.xcassets/launch-screen-image.imageset/la.png"; sourceTree = "<group>"; };
-		E3C7AACC2683DAE100CD6326 /* DeepLabV3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3.mlmodel; sourceTree = "<group>"; };
 		E3C7AACF2683E1D800CD6326 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		E3C7AAD02683E1D800CD6326 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		E3C7AAD12683E1D800CD6326 /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
@@ -194,10 +191,11 @@
 		E3C7D33E2698FC14003ADB2A /* SocialShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialShare.swift; sourceTree = "<group>"; };
 		E3CC0C26267E2DFA0019E4DB /* ShelfBuildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfBuildView.swift; sourceTree = "<group>"; };
 		E3D5720127053357009526D2 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		E3D6ACCB268AFF3400F4F37B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		E3D6ACCB268AFF3400F4F37B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Shelf Life/Launch Screen.storyboard"; sourceTree = SOURCE_ROOT; };
 		E3F48EE0270EC368009AABD5 /* VaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaultView.swift; sourceTree = "<group>"; };
 		E3F48EE2270F02F3009AABD5 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		E3FCEF78267FC0DA005C4BC3 /* Shelf Life WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Shelf Life WidgetExtension.entitlements"; sourceTree = "<group>"; };
+		E3FF195927190D62001313BA /* la.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = la.png; sourceTree = SOURCE_ROOT; };
 		EB65C154EFB49231CFDD7EC0 /* Pods_Shelf_Life_Shelf_LifeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shelf_Life_Shelf_LifeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1B60686BEC901228A53828 /* Pods-Shelf Life-Shelf LifeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shelf Life-Shelf LifeUITests.release.xcconfig"; path = "Target Support Files/Pods-Shelf Life-Shelf LifeUITests/Pods-Shelf Life-Shelf LifeUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -290,11 +288,10 @@
 		E3769224267DDDFD00E2627B = {
 			isa = PBXGroup;
 			children = (
-				E3BFAE3F271259D300E338EA /* la.png */,
-				E3C7AACC2683DAE100CD6326 /* DeepLabV3.mlmodel */,
+				E363EF3F271954E600C6B1EB /* Shelf-Life-Info.plist */,
+				E3FF195927190D62001313BA /* la.png */,
 				E3FCEF78267FC0DA005C4BC3 /* Shelf Life WidgetExtension.entitlements */,
 				E376922F267DDDFD00E2627B /* Shelf Life */,
-				E3769240267DDE0100E2627B /* Shelf LifeTests */,
 				E376924A267DDE0100E2627B /* Shelf LifeUITests */,
 				E3769262267DDE2600E2627B /* Shelf Life Widget */,
 				E376925D267DDE2600E2627B /* Frameworks */,
@@ -346,14 +343,6 @@
 				E3769237267DDE0100E2627B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		E3769240267DDE0100E2627B /* Shelf LifeTests */ = {
-			isa = PBXGroup;
-			children = (
-				E3769241267DDE0100E2627B /* Shelf_LifeTests.swift */,
-			);
-			path = "Shelf LifeTests";
 			sourceTree = "<group>";
 		};
 		E376924A267DDE0100E2627B /* Shelf LifeUITests */ = {
@@ -565,9 +554,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3BFAE40271259D300E338EA /* la.png in Resources */,
 				E3C7AAEA2683E1D900CD6326 /* LICENSE.txt in Resources */,
 				E3769238267DDE0100E2627B /* Preview Assets.xcassets in Resources */,
+				E3FF195B27190D7A001313BA /* la.png in Resources */,
+				E363EF40271954E600C6B1EB /* Shelf-Life-Info.plist in Resources */,
 				E3D6ACCC268AFF3400F4F37B /* Launch Screen.storyboard in Resources */,
 				E3769235267DDE0100E2627B /* Assets.xcassets in Resources */,
 			);
@@ -722,7 +712,6 @@
 				E37DC9EE2689E3EC00B793CE /* Purchase_CreateUserObject.swift in Sources */,
 				E3D5720227053358009526D2 /* HomeView.swift in Sources */,
 				E3769233267DDDFD00E2627B /* ContentView.swift in Sources */,
-				E3C7AACD2683DAE100CD6326 /* DeepLabV3.mlmodel in Sources */,
 				E3C7AAE52683E1D900CD6326 /* CVPixelBuffer+Helpers.swift in Sources */,
 				E31DCC2626B6E42C002FC1A0 /* ChildColorViewState.swift in Sources */,
 				E3C7AAE32683E1D900CD6326 /* UIImage+RawBytes.swift in Sources */,
@@ -741,7 +730,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3769242267DDE0100E2627B /* Shelf_LifeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,7 +908,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Shelf Life/Shelf Life.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"Shelf Life/Preview Content\"";
 				DEVELOPMENT_TEAM = 3LQNW9ERQV;
@@ -939,9 +927,9 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 2;
+				MARKETING_VERSION = 3;
 				PRODUCT_BUNDLE_IDENTIFIER = Intract.Boaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -961,7 +949,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Shelf Life/Shelf Life.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"Shelf Life/Preview Content\"";
 				DEVELOPMENT_TEAM = 3LQNW9ERQV;
@@ -980,9 +968,9 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 2;
+				MARKETING_VERSION = 3;
 				PRODUCT_BUNDLE_IDENTIFIER = Intract.Boaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

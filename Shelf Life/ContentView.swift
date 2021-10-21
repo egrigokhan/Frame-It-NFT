@@ -135,7 +135,7 @@ struct ShelfHorizontalScroll: View {
                     }
                     
                     for v in (SMALL_DICT[1...]) {
-                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.jpegData(compressionQuality: 0.3)!))
+                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.pngData()!))
                     }
                     UserDefaultsFunctions.saveObject(key: "widget_small" + shelfVariant, value: shelfStates)
                     WidgetCenter.shared.reloadTimelines(ofKind: "Widgets")
@@ -187,7 +187,7 @@ struct ShelfHorizontalScroll: View {
                     }
                     
                     for v in (MEDIUM_DICT[1...]) {
-                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.jpegData(compressionQuality: 0.3)!))
+                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.pngData()!))
                     }
                     UserDefaultsFunctions.saveObject(key: "widget_medium" + shelfVariant, value: shelfStates)
                     WidgetCenter.shared.reloadTimelines(ofKind: "Widgets")
@@ -239,7 +239,7 @@ struct ShelfHorizontalScroll: View {
                     }
                     
                     for v in (LARGE_DICT![1...]) {
-                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.jpegData(compressionQuality: 0.3)!))
+                        shelfStates.append(TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.pngData()!))
                     }
                     UserDefaultsFunctions.saveObject(key: "widget_large" + shelfVariant, value: shelfStates)
                     

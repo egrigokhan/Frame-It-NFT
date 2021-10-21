@@ -143,20 +143,20 @@ struct ShelfBuildView: View {
                     }
                     
                     for v in self.state.shelfViews {
-                        var ts_ = TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.jpegData(compressionQuality: 0.3)!, imagePath: v.state.imagePath)
+                        var ts_ = TransferState.init(id: v.id.uuidString, offset: v.state.offset, scale: v.state.scale, imageData: v.state.imageView.pngData()!, imagePath: v.state.imagePath)
                         ts_.clean()
                         shelfStates.append(ts_) // imageData: Data.init()))
                     }
                     
                     self.shouldTakeScreenshot = true
                     
-                    // shelfStates.append(TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: -1, imageData: value.jpegData(compressionQuality: 0.3)!))
+                    // shelfStates.append(TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: -1, imageData: value.pngData()!))
                     
-                    UserDefaultsFunctions.addTimelineObject(key: "widget_timeline_" + self.widgetType + self.widgetVariant, value: ["thumbnail": [TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: 1, imageData: value.jpegData(compressionQuality: 0.3)!, imagePath: nil)], "ts": shelfStates], index: state.timelineIndex)
+                    UserDefaultsFunctions.addTimelineObject(key: "widget_timeline_" + self.widgetType + self.widgetVariant, value: ["thumbnail": [TransferState.init(id: "thumbnail", offset: CGPoint.zero, scale: 1, imageData: value.pngData()!, imagePath: nil)], "ts": shelfStates], index: state.timelineIndex)
                     
                     self.shouldTakeScreenshot = false
                     
-                    self.notification = "🎉 Your shelf should now be updated!"
+                    self.notification = "🎉 Your gallery should now be updated!"
                     self.id = UUID()
                     
                     self.refresh()

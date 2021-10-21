@@ -222,9 +222,10 @@ struct CollectionView: View {
                         .padding(16)
                         
                     }.clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+                    Spacer(minLength: 32)
                     Button("Looks good!") {
                         Inventory().addCollection(collection: CollectionRowView.init(collectionId: addCollectionTitle, collectionTitle: addCollectionTitle, collectionPaths: [], collectionImageViews: []), image: addCollectionImage!)
-
+                        self.showSheet = false
                     }.disabled(!(addCollectionTitle != "" && addCollectionImage != nil))
                 .frame(alignment: Alignment.leading)
                 }.frame(height: 120, alignment: .leading)

@@ -7,15 +7,15 @@
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleName</key>
-	<string>Shelf Life</string>
+	<string>Frame It!</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppleMusicUsageDescription</key>
-	<string>Shelf Life needs to access your photos so that we can turn your objects into pixel art.</string>
+	<string>Frame It! needs to access your photos so that we can turn your objects into pixel art.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Shelf Life needs to access your photos so that we can turn your objects into pixel art.</string>
+	<string>Frame It! needs to access your photos so that we can turn your objects into pixel art.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Shelf Life needs to access your photos so that we can turn your objects into pixel art.</string>
+	<string>Frame It! needs to access your photos so that we can turn your objects into pixel art.</string>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
@@ -29,5 +29,9 @@
 	<string>Launch Screen</string>
 	<key>UIRequiresFullScreen</key>
 	<true/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
 </dict>
 </plist>
