@@ -17,6 +17,29 @@ enum ChildViewType {
     case FLOOR
 }
 
+struct AddShadows: ViewModifier {
+    
+    @State var scale: CGFloat
+    
+    init(scale: CGFloat) {
+        self.scale = scale
+    }
+    
+    func body(content: Content) -> some View {
+        content.background(Color.white.shadow(color: Color.black.opacity(0.3), radius: 0.1, x: 12 / self.scale, y: 5 / self.scale))
+        
+            /*
+            (color: Color.black.opacity(0.1), radius: 0.1, x: 5 +K 3.0 * 0.3, y: 5 + 4.0 * 0.7)
+            
+            */
+            /*
+            .shadow(color: Color.black.opacity(0.1), radius: 0.1, x: 0, y: 1 + 4 * sin(CGFloat(Double(Calendar.current.component(.hour, from: Date()))) / 24.0) * 3.14)
+            .shadow(color: Color.black.opacity(0.1), radius: 0.1, x: 0.5 + 0.5 * cos(CGFloat((Double(Calendar.current.component(.hour, from: Date()))) / 24.0) * 3.14), y: 0)
+            .shadow(color: Color.black.opacity(0.1), radius: 0.1, x: -0.5 + 0.5 * cos(CGFloat((Double(Calendar.current.component(.hour, from: Date()))) / 24.0) * 3.14), y: 0)
+            */
+    }
+}
+
 struct ChildView: Identifiable, View {
     
     var id = UUID()
@@ -25,6 +48,9 @@ struct ChildView: Identifiable, View {
 
     init(type: ChildViewType, colorComponents: [CGFloat], offset: CGPoint, scale: CGFloat, imageView: UIImage, imagePath: String?) {
         self.state = ChildViewState.init(type: type, offset: offset, scale: scale, imageView: imageView, imagePath: imagePath, colorComponents: colorComponents)
+        if(imagePath != nil && imagePath!.contains("spec_")) {
+            self.state.type = .SPECTATOR
+        }
     }
     
     var body: some View {
@@ -45,7 +71,7 @@ struct ChildView: Identifiable, View {
                         .frame(height: 80, alignment: .center)
                         .padding(16 / self.state.scale)
                         .border(Color.black, width: 6 / self.state.scale)
-                        .background(Color.white)
+                        .modifier(AddShadows.init(scale: self.state.scale))
                         .scaleEffect(self.state.scale)
                         .offset(x: self.state.offset.x, y: self.state.offset.y)
                         .gesture(
