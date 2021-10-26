@@ -26,7 +26,7 @@ struct AddShadows: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        content.background(Color.white.shadow(color: Color.black.opacity(0.3), radius: 0.1, x: 12 / self.scale, y: 5 / self.scale))
+        content.background(Color.white.shadow(color: Color.black.opacity(0.3), radius: 0.1, x: (12 + 12 * cos(CGFloat((Double(Calendar.current.component(.hour, from: Date()))) / 24.0) * 3.14)) / self.scale, y: (12 + 10 * sin(CGFloat(Double(Calendar.current.component(.hour, from: Date()))) / 24.0) * 3.14) / self.scale))
         
             /*
             (color: Color.black.opacity(0.1), radius: 0.1, x: 5 +K 3.0 * 0.3, y: 5 + 4.0 * 0.7)
@@ -44,10 +44,10 @@ struct ChildView: Identifiable, View {
     
     var id = UUID()
         
-    @ObservedObject var state: ChildViewState = ChildViewState.init(type: .COLOR, offset: .zero, scale: 1.0, imageView: UIImage(named: "2")!, imagePath: "2", colorComponents: [])
+    @ObservedObject var state: ChildViewState = ChildViewState.init(type: .COLOR, offset: .zero, scale: 1.0, imageView: UIImage(named: "2")!, imagePath: "2", colorComponents: [], shadow: false)
 
-    init(type: ChildViewType, colorComponents: [CGFloat], offset: CGPoint, scale: CGFloat, imageView: UIImage, imagePath: String?) {
-        self.state = ChildViewState.init(type: type, offset: offset, scale: scale, imageView: imageView, imagePath: imagePath, colorComponents: colorComponents)
+    init(type: ChildViewType, colorComponents: [CGFloat], offset: CGPoint, scale: CGFloat, imageView: UIImage, imagePath: String?, shadow: Bool = false) {
+        self.state = ChildViewState.init(type: type, offset: offset, scale: scale, imageView: imageView, imagePath: imagePath, colorComponents: colorComponents, shadow: shadow)
         if(imagePath != nil && imagePath!.contains("spec_")) {
             self.state.type = .SPECTATOR
         }
@@ -64,29 +64,55 @@ struct ChildView: Identifiable, View {
         case .IMAGE:
             ZStack {
                 VStack {
-                    Image(uiImage: state.imageView)
-                        // .interpolation(.medium)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 80, alignment: .center)
-                        .padding(16 / self.state.scale)
-                        .border(Color.black, width: 6 / self.state.scale)
-                        .modifier(AddShadows.init(scale: self.state.scale))
-                        .scaleEffect(self.state.scale)
-                        .offset(x: self.state.offset.x, y: self.state.offset.y)
-                        .gesture(
-                            DragGesture()
-                                .onChanged { gesture in
-                                    self.state.offset = gesture.location
-                                    self.state.offset = CGPoint.init(x: floor(gesture.location.x / 5) * 5 - 6 / self.state.scale, y: floor(gesture.location.y / 5) * 5 - 6 / self.state.scale)
-                                }
-                        )
-                        .gesture(
-                            MagnificationGesture()
-                                    .onChanged { value in
-                                        self.state.scale = max(floor((value.magnitude * 80) / 5) * 5 / 80, 0.1)
+                    if(self.state.shadow) {
+                        Image(uiImage: state.imageView)
+                            // .interpolation(.medium)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 80, alignment: .center)
+                            .padding(16 / self.state.scale)
+                            .border(Color.black, width: 6 / self.state.scale)
+                            .modifier(AddShadows.init(scale: self.state.scale))
+                            .scaleEffect(self.state.scale)
+                            .offset(x: self.state.offset.x, y: self.state.offset.y)
+                            .gesture(
+                                DragGesture()
+                                    .onChanged { gesture in
+                                        self.state.offset = gesture.location
+                                        self.state.offset = CGPoint.init(x: floor(gesture.location.x / 5) * 5 - 6 / self.state.scale, y: floor(gesture.location.y / 5) * 5 - 6 / self.state.scale)
                                     }
-                                )
+                            )
+                            .gesture(
+                                MagnificationGesture()
+                                        .onChanged { value in
+                                            self.state.scale = max(floor((value.magnitude * 80) / 5) * 5 / 80, 0.1)
+                                        }
+                                    )
+                    } else {
+                        Image(uiImage: state.imageView)
+                            // .interpolation(.medium)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 80, alignment: .center)
+                            .padding(16 / self.state.scale)
+                            .border(Color.black, width: 6 / self.state.scale)
+                            .background(Color.white)
+                            .scaleEffect(self.state.scale)
+                            .offset(x: self.state.offset.x, y: self.state.offset.y)
+                            .gesture(
+                                DragGesture()
+                                    .onChanged { gesture in
+                                        self.state.offset = gesture.location
+                                        self.state.offset = CGPoint.init(x: floor(gesture.location.x / 5) * 5 - 6 / self.state.scale, y: floor(gesture.location.y / 5) * 5 - 6 / self.state.scale)
+                                    }
+                            )
+                            .gesture(
+                                MagnificationGesture()
+                                        .onChanged { value in
+                                            self.state.scale = max(floor((value.magnitude * 80) / 5) * 5 / 80, 0.1)
+                                        }
+                                    )
+                    }
                 }
             }.frame(height: 80, alignment: .center)
         case .SPECTATOR:

@@ -305,11 +305,11 @@ struct ShelfCanvasView_WIDGET: View {
                     ForEach(views, id: \.id.uuidString) { view in
                         if(view.state.type == .IMAGE) {
                             ZStack {
-                                ChildView.init(type: ChildViewType.IMAGE, colorComponents: [], offset: view.state.offset, scale: view.state.scale, imageView: view.state.imageView, imagePath: view.state.imagePath)
+                                ChildView.init(type: ChildViewType.IMAGE, colorComponents: [], offset: view.state.offset, scale: view.state.scale, imageView: view.state.imageView, imagePath: view.state.imagePath, shadow: true)
                             }
                         } else if(view.state.type == .SPECTATOR) {
                             ZStack {
-                                ChildView.init(type: ChildViewType.SPECTATOR, colorComponents: [], offset: view.state.offset, scale: view.state.scale, imageView: view.state.imageView, imagePath: view.state.imagePath)
+                                ChildView.init(type: ChildViewType.SPECTATOR, colorComponents: [], offset: view.state.offset, scale: view.state.scale, imageView: view.state.imageView, imagePath: view.state.imagePath, shadow: true)
                             }
                         }
                             

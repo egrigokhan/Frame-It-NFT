@@ -19,13 +19,16 @@ class ChildViewState: ObservableObject {
     @Published var imagePath: String?
     
     @Published var colorComponents: [CGFloat]
+    
+    @Published var shadow: Bool = false
 
-    init(type: ChildViewType, offset: CGPoint, scale: CGFloat, imageView: UIImage, imagePath: String?, colorComponents: [CGFloat]) {
+    init(type: ChildViewType, offset: CGPoint, scale: CGFloat, imageView: UIImage, imagePath: String?, colorComponents: [CGFloat], shadow: Bool = false) {
         self.type = type
         self.imageView = imageView
         self.imagePath = imagePath
         self.offset = offset
         self.scale = scale
         self.colorComponents = colorComponents
+        self.shadow = shadow
     }
 }
